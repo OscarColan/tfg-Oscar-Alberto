@@ -1,0 +1,35 @@
+\documentclass[
+	11pt, % Tamaño de fuente predeterminado, selecciona uno entre 10pt, 11pt o 12pt
+	fleqn, % Alinear las ecuaciones a la izquierda
+	a4paper, % Tamaño del papel, usar 'a4paper' para tamaño A4 o 'letterpaper' para tamaño carta (EE.UU.)
+	%oneside, % Descomentar para modo de una sola cara, este modo no inicia nuevos capítulos o partes en páginas impares (evitando agregar una página en blanco si es necesario), más adecuado si el libro será leído en pantalla en lugar de ser impreso
+]{LegrandOrangeBook}
+
+
+\input{preambulo.tex}
+
+\begin{document}
+
+\include{partes/fondohistorico/fondohistorico}
+
+% Tabla de contenidos
+
+\pagestyle{empty} % Disable headers and footers for the following pages
+
+\tableofcontents % Output the table of contents
+
+\listoffigures % Output the list of figures, comment or remove this command if not required
+
+\listoftables % Output the list of tables, comment or remove this command if not required
+
+\pagestyle{fancy} % Enable default headers and footers again
+
+\cleardoublepage % Start the following content on a new page
+
+
+% Partes y capítulos
+\include{partes/parte1/parte1}
+\include{partes/parte2/parte2}
+\include{partes/parte3/parte3}
+
+\end{document}

@@ -1,0 +1,253 @@
+\chapter{Giróscopos mecánicos}
+\setchapterimage{orange17.jpg} % Chapter heading image
+\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+\pagestyle{fancy}
+\vspace{-1cm}
+
+En la aviación, los giróscopos son esenciales porque ofrecen una referencia estable para la medición de actitud (la orientación del vehículo), lo que permite que la aeronave mantenga una posición espacial precisa incluso sin referencias visuales o con ambientes de baja visibilidad.\\
+
+La precesión es la capacidad de detectar y medir pequeños cambios en la orientación, lo cual es vital para el funcionamiento de sistemas como el piloto automático y el indicador de tasa de giro, de esta manera se puede responder con rapidez a los cambios durante el vuelo.\\
+
+Los giróscopos son una parte esencial de la instrumentación de un avión, ya que proporcionan información situacional crítica en forma de cabeceo y balanceo y, al integrarse en sistemas de navegación inercial, ayudan a mantener el seguimiento de la posición y la orientación cuando no hay otras referencias disponibles (como GPS o el horizonte natural).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{justificaciongiroscopos.jpg}
+    \caption{\centering Independientemente de la colocación de la base, el giroscopo tiende a mantenerse apuntando a una dirección constante. \textit{ Fuente: Pilot´s Handbook of Aeronautical Knowledge}}
+    \label{fig:placeholdergiroscopo}
+\end{figure}
+
+\section{Propiedades de los giroscopios mecánicos}
+
+Los giroscopios mecánicos se basan en dos propiedades fundamentales: la rigidez y la precesión.\\
+
+\begin{nosangria}
+\large{\textbf{Rigidez:}}
+\end{nosangria}
+
+    La rigidez es la tendencia de un giroscopio a mantener su eje de giro en una dirección fija en el espacio. Por ejemplo, si se orienta el giroscopio hacia una estrella lejana, éste mantendrá dicha dirección sin importar el movimiento de la base que lo sostiene, como se observa en la figura \ref{fig:placeholdergiroscopo}.\\
+    
+\begin{definicion}[Momento angular]
+ La rigidez aumenta con el momento angular, que se define como:
+\begin{equation}
+    L = I\,\omega
+\end{equation}
+\end{definicion}
+
+    Donde \(I\) es el momento de inercia, propiedad del objeto (depende de la masa y de la geometria) que cuantifica la resistencia que ofrece el objeto de girar y \(\omega\) la velocidad angular. Esto significa que, a mayor producto \(I\,\omega\), mayor es la rigidez del giroscopio, lo que ocurre cuando gire con mayor rapidez y al mismo tiempo mayor resistencia tenga a los cambios en su orientación.\\
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.3\textwidth} 
+        \centering
+        \includegraphics[width=\linewidth]{giroscopos.jpg}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.6 \textwidth} % Caption a la derecha (35% del ancho)
+        \captionof{figure}{Rigidez \textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control.}}
+    \end{minipage}
+\end{figure}
+
+
+
+\begin{nosangria}
+\large{\textbf{ Precesión:}}
+\end{nosangria}
+
+
+
+La precesión es el movimiento del eje del giroscopio en respuesta a un par (\(\tau\)) \footnote{Definimos par como la fuerza aplicada a un objeto por la distancia perpendicular a la que se encuentra de él} aplicado perpendicularmente al eje de giro, como se observa a la izquierda de la figura \ref{fig:superprecesion} (a). En lugar de inclinarse en la dirección del par aplicado, el giroscopio experimenta una rotación en una dirección perpendicular tanto del par como del eje de giro (figura \ref{fig:superprecesion} (b)). Una forma sencilla de determinar la dirección del movimiento de precesión es visualizar el par aplicado rotando 90° en la dirección de giro del rotor (figura \ref{fig:superprecesion} (c)).\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{precesiona.jpg}
+    \caption{\centering Precesión giroscópica.\textit{  Fuente: \href{https://www.studyaircrafts.com/gyroscopic-instruments}{studyaircrafts.com}.}}
+    \label{fig:superprecesion}
+\end{figure}
+   
+   
+\begin{definicion}[Velocidad angular de precesión]
+    Si definimos \(\Omega\) como la velocidad angular de precesión, se debe cumplir que:
+    \begin{equation}
+    \Omega = \frac{\tau}{I\,\omega}
+    \end{equation}
+\end{definicion}
+
+
+
+ \subsection{Errores de medición}
+\label{subsec:erroresdemedicion}
+\begin{itemize}
+    \item \textbf{Deriva Verdadera:}  
+    Ningún giroscopio es perfectamente mecánico ni libre de fricción. La fricción en los rodamientos, el desequilibrio del rotor, entre otros factores, generan pequeños pares que hacen que el eje cambie su orientación con el tiempo. Este cambio real se denomina \emph{deriva verdadera}.
+    
+    \item \textbf{Deriva Aparente:}  
+    Cuando el giroscopio se utiliza para indicar una dirección relativa a la Tierra, el hecho de moverse sobre la superficie curva de la Tierra y su rotación provoca una \emph{deriva aparente}. Esta deriva se divide en:
+
+	\begin{itemize}
+        		\item \textbf{Deriva astronómica:} Desviación causada por la rotación de la Tierra, la Tierra gira aproximadamente a 15º por hora en los polos. En un giróscopo en su eje horizontal (paralelo al horizonte) se observara una deriva tal:
+		\begin{equation}
+			Deriva = \pm 15º \cdot sen(altitud) \cdot h
+		\end{equation}
+
+		 \begin{figure}[H]
+		  	\centering
+		    	\includegraphics[width=0.7\textwidth]{derivaastronomica.jpg}
+		    	\caption{\centering Deriva astronómica.\textit{ Fuente: Apuntes Equipos y sistemas embarcados UCLM.}}
+			\label{fig:placeholder}
+		\end{figure}      
+        
+ 	       \item \textbf{Deriva de transporte:} Cambio en la orientación a medida que el vehículo se desplaza sobre la esfera terrestre, es debido a la curvatura (ángulo cambiante de los meridianos) de la superficie de la tierra que induce un cambio aparente en el eje de giro del giróscopo que se encuentra fijo en el espacio.
+        
+		\begin{figure}[H]
+		    \centering
+		    \includegraphics[width=0.7\textwidth]{derivatransporte.jpg}
+		    \caption{\centering Deriva de transporte.\textit{ Fuente: Apuntes Equipos y sistemas embarcados UCLM.}}
+		    \label{fig:placeholder}
+		\end{figure}           
+        
+	\end{itemize}
+\end{itemize}
+
+
+\section{Fuentes de Energía}
+La energía para hacer girar un giróscopo se produce ya sea mediante un motor eléctrico o por la presión del aire dirigida contra las palas en la circunferencia del rotor, como si de una rueda de agua o una turbina se tratase, este proceso permite girar el giróscopo a alta velocidad angular. En aviación, los sistemas de vacio son los encargados de alimentar los giróscopos.\\  
+
+Los componentes básicos de un sistema de vacío incluyen una bomba de vacío (normalmente accionada por el motor), una válvula de alivio, un filtro de aire, un manómetro y tuberías para la conexión de todos (los tubos deben ser herméticos para evitar fugas). El manómetro se encuentra en el panel de instrumentos de la aeronave y muestra la presión en el sistema (el vacío se mide en pulgadas de mercurio).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{bombavacio.jpg}
+    \caption{\centering Sistema de vacío típico. \textit{ Fuente: Pilot´s Handbook of Aeronautical Knowledge}}
+    \label{fig:placeholderbombavacio}
+\end{figure}
+
+El aire es extraido del sistema por la bomba de vacío; primero pasa por un filtro que impide la entrada de materia extraña que pueden dañar los componentes, y luego circula a través de los indicadores de actitud y rumbo, donde provoca que los giroscopios giren. Una válvula de alivio evita que la presión de vacío (o succión) exceda los límites prescritos. Posteriormente, el aire puede ser expulsado al exterior o utilizado en otros sistemas, como en el inflado de las botas neumáticas anticongelantes que se encuentran en el borde de ataque de las alas.\\ 
+
+Es crucial monitorizar la presión de vacío durante el vuelo, ya que los indicadores de actitud y rumbo pueden volverse poco fiables cuando la presión de succión es baja. Por lo general, el manómetro de vacío está calibrado para indicar el rango normal e incluso puede haber una luz de advertencia que se activa cuando la presión de vacío cae por debajo de los niveles aceptables.\\
+
+Los instrumentos giroscópicos se vuelven inestables e inexactos cuando la presión del vacío cae por debajo del rango normal, por lo que se recomienda realizar comprobaciones rutinarias de su correcto funcionamiento.\\
+
+\section{Tipos de giroscopios}
+\begin{itemize}
+\item Giroscopios de desplazamiento (Displacement gyros): Detectan los cambios en la orientación de un objeto (su desplazamiento angular). Se dividen en dos tipos:
+
+\begin{enumerate}
+\item Giroscopios libres (Free gyros): Son libres, sin estar sujetos a una referencia externa. La precesión puede tener lugar alrededor de cualquiera de los dos ejes en ángulo recto respecto al plano de rotación, lo que supone que tengan dos grados de libertad. No tienen ninguna utilidad práctica en los aviones.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{FreeGyro.jpg}
+    \caption{\centering Giróscopo libre.\textit{ Fuente: \href{https://www.studyaircrafts.com/gyroscopic-instruments}{studyaircrafts.com}.}}
+    \label{fig:superprecesionlibre}
+\end{figure}
+
+\item Giroscopios atados (Tied gyros): Tiene su eje fijado en una dirección específica con un marco de referencia externo en lugar de mantener una orientación libre en el espacio. Se usan en indicadores de dirección y actitud (como se estudiará en las siguientes secciones) y en sistemas de estabilización y control.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Gyroscope.jpg}
+    \caption{\centering Giróscopo atado, alineado con los ejes de giro de la aeronave.\textit{ Fuente: \href{https://www.studyaircrafts.com/gyroscopic-instruments}{studyaircrafts.com}.}}
+    \label{fig:superprecesionatadaxd}
+\end{figure}
+
+En la figura \ref{fig:superprecesionatadaxd} se muestran distintos giroscopios, el giróscopo E se encuentra alineado con el eje de cabeceo (B), el F con el eje de alabeo (C) y el D con el eje de guiñada (D).
+
+\end{enumerate}
+
+
+\item Giroscopios de velocidad (Rate gyros): Miden la velocidad de rotación en lugar del ángulo, da información a tiempo real sobre el movimiento de la aeronave . Sirve como base en los indicadores de giro y coordinación y para los sistemas de estabilidad.
+\end{itemize}
+
+\section{Indicador de dirección}
+El indicador de rumbo (Heading Indicator), a veces denominado indicador de dirección (Direction Indicator), es un instrumento giroscópico que sirve como referencia direccional para complementar la brújula magnética, ofreciendo una indicación constante de la dirección que no se ve afectada por aceleraciones, giros o turbulencias.\\
+
+Funciona utilizando el principio de rigidez del eje, consistente en un giroscopio montado en doble cardán \footnote{Los cardanes son los anillos o pivotes que permiten la rotación en múltiples direcciones} que permite al giroscópo mantener su eje horizontal fijo mientras el avión gira a su alrededor. El rotor del giróscopo está conectado a una carta de brújula a través de un sistema de engranajes, permitiendo que la carta se mueva en respuesta a cambios de rumbo.\\
+
+Aunque es más preciso que una brújula magnética, el HI/DI puede tener errores de medición por la fricción, lo que provoca desplazamientos con el tiempo, adicional al error de rotación de la Tierra visto en el apartado \ref{subsec:erroresdemedicion}. Es por todo esto que se necesita de una corrección periódica con la brújula magnética. Diseños más sofisticados (por ejemplo, HSI (Indicador de Situación Horizontal)) incorporan magnetómetros para compensar automáticamente este error. En vuelo, el piloto inicialmente configurará el HI con la brújula magnética que se usaráo como referencia principal, corrigiéndolo periódicamente para evitar errores de navegación.
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.65\textwidth} 
+        \centering
+        \includegraphics[width=\linewidth]{headingindicator.jpg}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.3 \textwidth} % Caption a la derecha (35% del ancho)
+        \captionof{figure}{Indicador de rumbo (Heading Indicator) muestra los rumbos basándose en un azimut de 360°, omitiendo el último cero. Por ejemplo, “6” representa 060°, mientras que “21” indica 210°. El botón de ajuste se utiliza para alinear el indicador de rumbo con el compás magnético.\textit{ Fuente: Pilot´s Handbook of Aeronautical Knowledge}}
+    \end{minipage}
+\end{figure}
+
+
+\section{Horizonte artificial}
+
+El Indicador de Actitud (Attitude Indicator), también conocido como horizonte artificial, es un instrumento giroscópico básico que muestra el ángulo de inclinación lateral y cabeceo de una aeronave sobre el eje longitudinal.\\
+
+Esto funciona mediante un giróscopo montado en el plano horizontal, que se mantiene estable por el principio de rigidez y gira alrededor del eje de guiñada de la aeronave. La rotación se representa en la pantalla con una pequeña silueta de la aeronave con una barra de horizonte fija. Es una parte esencial del método de vuelo en condiciones donde no se puede ver fuera del avión, porque proporciona una indicación clara y definida de la actitud.\\ 
+
+Los modelos más antiguos utilizan una bomba de vacío para mantener la inercia del giroscopio y corregir la alineación del giroscopio en relación con la Tierra, mientras que los modelos eléctricos más modernos utilizan sensores de mercurio y motores de corrección para un funcionamiento suave y reducir el desgaste(Figura \ref{fig:placeholderseywgogogogog})  .\\
+
+\begin{figure}[H] 
+	\centering
+	\includegraphics[width=0.9\textwidth]{AI.jpg}
+	\caption{\centering (a) Sistema de elevación mediante potencia eléctrica usado en los indicadores de actitud. El mercurio detecta cualquier deflexión y los motores de alabeo (roll) y cabeceo (pitch) aplican un par para corregir el sistema. (b) El circuito se encuentra abierto, pero como el mercurio es conductor cuando se desplaza cierra el circuito en uno de los lados. \textit{ Fuente: Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control.}}
+	\label{fig:placeholderseywgogogogog}
+\end{figure}
+
+
+También muestra una escala de la inclinación lateral (Bank scale) con una escala de alabeo con indicaciones a 10°, 20°, 30°, 45°, 60°, 90°, y además incluye una escala de cabeceo (pitch scale) con incrementos de 5°, permitiendo al piloto interpretar con precisión los movimientos de la aeronave.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{attitudeindicator.jpg}
+    \caption{\centering Horizonte artificial.\textit{ Fuente: Pilot´s Handbook of Aeronautical Knowledge}}
+    \label{fig:placeholder}
+\end{figure}
+
+Aunque es una de las representaciones más precisas y fieles de la realidad en la cabina, el indicador de actitud presenta ciertas limitaciones. En algunos modelos, los límites de inclinación lateral son de 100° a 110° y los límites de cabeceo son de 60° a 70°. Esto significa que si la aeronave excede estos valores, el indicador puede congelarse o mostrar información incorrecta hasta que la aeronave vuelva a una actitud normal. Además, aceleraciones bruscas o giros no coordinados que pueden hacer que se generen errores en la indicación, debido a eso, algunos modelos apagan los sensores si las aceleraciones superan 0.18 g o el giro es mayor de 10°.\\
+
+En cualquier caso, la utilidad de indicador de actitud sigue siendo esencial para la navegación en condiciones de vuelo por instrumentos (Instrument Flight Rules), proporcionando al piloto una referencia estable y precisa para el control del avión, especialmente en condiciones de baja visibilidad o de noche.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1 \textwidth]{actitud.jpg}
+    \caption{\centering Representación de la actitud mediante el indicador de actitud corresponde a la relación de la aeronave con el horizonte artificial.\textit{ Fuente: Pilot´s Handbook of Aeronautical Knowledge}}
+    \label{fig:placeholder}
+\end{figure}
+
+\section{Indicador de giro y el coordinador de giro}
+
+El indicador de giro y el coordinador de giro son instrumentos giroscópicos que miden la velocidad de guiñada de una aeronave para mantener giros equilibrados y precisos. Usan un giroscopio de velocidad (rate gyro) para detectar la precesión en el giro, por lo que son similares en ese sentido, pero los diseños y el uso son bastante diferentes.
+
+\subsection{Indicador de giro}
+La forma más común de indicador de giro, utilizada en aviones antiguos, tiene su giroscopio montado en un cardán restringido por un resorte a un límite, lo que significa que solo puede girar alrededor del eje longitudinal. A medida que el ángulo de cabeceo de la aeronave cambia, el giroscopio no se verá afectado; pero a medida que la aeronave se incline sobre suslaterales, el cardán bloqueará la precesión del giroscopio alrededor del eje vertical. Sin embargo, a medida que el avión rota sobre su eje de guiñada, la precesión obliga al cardán a adoptar un ángulo proporcional a la velocidad de giro, moviendo el puntero en la pantalla del instrumento. Una vez que se detecta la inclinación del giroscopio, se usa ese valor y los egranajes mueven el puntero en sentido contrario al movimiento natural del giróscopo.\\
+
+En la pantalla del indicador de giro, hay dos marcas a cada lado de su centro que indican una tasa de giro de 3° por segundo; esto se conoce como Giro 1, o giro estándar, el tipo más común de giro en la aviación comercial.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{turncordinatora.jpg}
+    \caption{\centering Indicador de giro.\textit{ Fuente: Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:indicadordegiro}
+\end{figure}
+
+\subsection{Coordinador de giro}
+A diferencia del indicador de giro, que solo detecta la tasa de guiñada, el Coordinador de Giro es una versión mejorada que además detecta la tasa de alabeo \footnote{En la maniobra de giro coordinado el piloto eleva uno de los alerones mientras baja el otro, creando un momento de alabeo, de esta manera el avión usa la fuerza de sustentación para girar el avión en vez de los motores, siendo este movimiento mucho más eficiente}. Esto se logra con un giróscopo montado en un soporte inclinado unos 30° (figura \ref{fig:indicadordegiroguapo} (a)) con respecto al eje lateral, y añade una respuesta adicional cuando comienza a inclinarse en la fase de guiñada, reflejando el movimiento más rápido que la propia guiñada. Este diseño permite al piloto establecer la tasa de giro que desea lograr al inicio de una maniobra.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{turncordinatorb.jpg}
+    \caption{\centering Coordinador de giro.\textit{ Fuente: Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:indicadordegiroguapo}
+\end{figure}
+
+El coordinador de giro muestra muestra las marcas de las velocidades junto a un pequeño avión en lugar de solo una aguja. También se incluye un indicador de deslizamiento, una bola de acero dentro de un tubo curvado lleno de fluido amortiguador que ayuda a determinar si el giro está balanceado o no (figura \ref{fig:indicadordegiroguapo} (b) . Durante un giro coordinado, las fuerzas de sustentación y centrífuga mantienen esta bola centrada en el indicador, pero si el giro no está coordinado, sino que los efectos aerodinámicos como la guiñada adversa \footnote{La guiñada adversa se produce por el aumento de sustentación y resistencia aerodinámica que sufre un ala al bajar los alerones mientras que la otra ala con los alerones subidos se reduce su resistencia, esa diferencia en la resistencia en uno de los lados genera un par en el avión, se genera una guiñada en el sentido contrario al giro deseado. } generan un derrape, el piloto podrá corregirlo gracias a la indicación de la bola, esta maniobra se conoce dentro del mundo de la aviación como ``pisar la bola'', el trabajo del piloto es mantener la bola centrada en sus marcas usando los pedales para reducir la guiñada adversa.\\
+
+Se puede leer en la pantalla ``No pitch information'' que traducido significa "Sin información de cabeceo", esta advertencia recuerda al piloto que este instrumento no debe confundirse con el Indicador de Actitud (AI), que sí muestra la información de cabeceo de la aeronave.
+
+
+
+
+
+
+
+
+

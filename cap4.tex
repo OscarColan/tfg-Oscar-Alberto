@@ -1,0 +1,239 @@
+\chapter{Giroscopios de estado sólido}
+\setchapterimage{orange5.jpg} % Chapter heading image
+\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+
+El problema principal de los giróscopos mecánicos son los errores debidos a la deriva verdadera, que alcanzan errores de 0,01º por hora, lo cual es importante en los sistemas de navegación inercial (INS). Definimos los giroscopios de estado sólido como aquellos dependes de partes móviles grandes (como un rotor), en cambio, estos utilizan fenómenos físicos internos para medir la velocidad angular, entre ellos se encuentran los giroscopios ópticos y los sistemas microelectromecánicos (MEMS).
+
+
+\section{Giroscopios ópticos}
+\subsection{Efecto Sagnac}
+Una de las técnicas ópticas para detectar las rotaciones de una aeronave hacen  uso del efecto Sagnac, descubierto por Georges Sagnac en 1913. Este método se basa en medir la diferencia en el tiempo de recorrido de dos haces de luz que circulan en direcciones opuestas a lo largo de un lazo cerrado en movimiento, en la figura \ref{fig:efectosagnac} este lazo cerrado se representa con un anillo. Debido a la rotación, uno de los haces viaja una trayectoria ligeramente mayor (línea azul) y el otro una trayectoria menor (linea roja), lo que genera una diferencia de fase al recombinarse, ya que no llegan a la vez al mismo punto. Esta diferencia se manifiesta como un patrón de interferencia, cuya variación es directamente proporcional a la velocidad angular del sistema, permitiendo determinar con bastante precisión la tasa de rotación del anillo (\(\omega\)).\\
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.35\textwidth} 
+        \centering
+        \includegraphics[width=\linewidth]{efectosagnac2.jpg} 
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.55\textwidth} % Caption a la derecha (35% del ancho)
+        \captionof{figure}{Representación del Efecto Sagnac. El haz azul va a la misma dirección que el giro del anillo, por lo que recorre más distancia que el haz rojo. El \(\Delta L\) es el desfase de las distancias. \textit{ Fuente: Apuntes equipos y sistemas embarcados UCLM}}
+    \end{minipage}
+    \label{fig:efectosagnac}
+\end{figure}
+
+Ambos haces viajan a la velocidad de la luz (c), por lo que el tiempo que tarda cada haz en coincidir con el contrario será:
+
+\begin{itemize}
+    \item Haz a favor del movimiento del anillo:    
+    \begin{equation}
+ 	tiempo = \frac{distancia}{velocidad} \rightarrow    t_{azul} = \frac{2 \pi R + \Delta L}{c}
+ 	\label{eq:ecuaciontiemposagnac}
+    \end{equation}
+    
+Donde R es el radio del anillo, y \(t_{azul}\) es el tiempo que ha tardado el haz azul en dar la vuelta. El anillo al final de recorrido ha avanzado un ángulo de \(\theta = \omega t_{azul}\), este ángulo \(\theta\) es un valor muy pequeño, recordemos que el haz viaja a la velocidad de la luz, esto queda reprensentado en la siguiente figura.
+    
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{imagentoguapa.jpg}
+    \caption{\centering Representación de \(\theta\) e incremento de L.\textit{ Fuente:Creación propia}}
+    \label{fig:imahenoguapo}
+\end{figure} 
+    
+Como la tangente de un ángulo muy pequeño es aproximadamente el mismo ángulo, podemos decir:
+    \[
+    	tan(\theta ) = \frac{\Delta L}{R} \rightarrow \theta = \frac{\Delta L}{R}
+     \]
+ A esta expresión junto a lo explicado anteriormente, se puede despejar como:    
+    \[
+    \Delta L = R \cdot \omega \cdot t_{azul}
+    \]
+    
+  Volviendo a la expresión \ref{eq:ecuaciontiemposagnac}, se puede decir ahora que:    
+    \begin{equation}
+    t_{azul} = \frac{2 \pi \cdot R + R \cdot \omega \cdot t_{azul}}{c} \rightarrow t_{azul} = \frac{2 \pi \cdot R}{c - R \cdot \omega}
+    \end{equation}
+    
+    \item De manera análoga, se puede decir que el haz en contra del movimiento del anillo experimenta un tiempo de:   
+    \begin{equation}
+    t_{rojo} = \frac{2 \pi R - R \omega t_{rojo}}{c} \rightarrow t_{rojo} = \frac{2 \pi R}{c + R \omega}
+    \end{equation}
+\end{itemize}
+
+Siendo la diferencia de ambos tiempos:
+\[
+t_{azul} - t_{rojo} = \Delta t = \frac{2\pi R}{c - R\omega} - \frac{2\pi R}{c + R\omega}
+\]
+\begin{equation}
+\Delta t = \frac{4 \pi R^{2} \omega}{c^{2} - R^{2} \omega^{2}}
+\end{equation}
+
+Como la velocidad de la luz es muchisimo mayor que la velocidad a la que se mueve el anillo, podemos despreciar el termino \(R^{2} \omega\). El desfase entonces será:
+\begin{definicion}[Desfase temporal del efecto Sagnac]
+\begin{equation}
+\Delta t = \frac{4A\omega}{c^2}
+\end{equation}
+\end{definicion}
+
+Donde \(A\) es el área del recorrido de los haces.\\
+
+Un método experimental para observar este efecto ocurre enviado dos haces de luz monocromáticas en sentidos opuestos a lo largo de un lazo cerrado definido por espejos, después, ambos alcanzarán un detector a través de un espejo semirreflectante y se podrá observar un patrón de interferencia. Si la mesa en la que se forma este lazo rota, durante el recorrido uno de los haces verá su trayectoria ligeramente alargada y el otro acortada, lo que modifica la diferencia de fase entre ambos y, en consecuencia, desplaza el patrón de franjas. Este patrón permanece inalterado frente a movimientos lineales uniformes, que afectan por igual a ambos haces, siendo únicamente la rotación la que provoca su variación, gracias a que la velocidad de la luz es invariante en todos los marcos de referencia inerciales.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{efectosagnac1.jpg}
+    \caption{\centering Ilustración de un interferómetro de Sagnac.\textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control.}}
+    \label{fig:cabes}
+\end{figure}
+
+
+\subsection{Giróscopo de Fibra Óptica (FOG)}
+Los giroscópios de fibra óptica, se basan en el efecto Sagnac, se hacen propagar haces de luz en ambas direcciones a lo largo de la fibra óptica.  Este instrumento es muy preciso debido a su gran resistencia a sufrir alteraciones por las vibraciones, aceleraciones o golpes. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{
+Fibreopticinterferometer.png}
+    \caption{\centering Giróscopo de fibra óptica.\textit{ Fuente: D. mcfadden - Own work \href{https://commons.wikimedia.org/w/index.php?curid=9441115}{Wikipedia}.}}
+    \label{fig:cabes}
+\end{figure}
+
+Se genera una diferencia en la longitud de los caminos recorridos por los haces, provocando un cambio de fase relativa. El desplazamiento de fase viene dado por:
+
+\begin{equation}
+\Delta \phi = \frac{8\pi n A \omega}{\lambda c}
+\end{equation}
+
+donde:
+\begin{itemize}
+    \item \( A \) es el área del lazo,
+    \item \( n \) es el número de vueltas de la fibra óptica,
+    \item \( \omega \) es la tasa angular de rotación del anillo (en las mismas unidades angulares que \(\Delta \phi\)),
+    \item \( \lambda \) es la longitud de onda de la luz,
+    \item \( c \) es la velocidad de la luz.
+\end{itemize}
+
+\subsection{Giróscopo de anillo láser (RLG)}
+
+La siguiente evolución de los instrumentos de navegación inercial aplicando el efecto Sagnac fue el giróscopo de anillo láser, dónde, a diferencia del giroscopio de fibra óptica, la luz no se propaga por una fibra sino que se mantiene dentro de una cavidad de forma triangular o rectangular llena de un gas inerte, típicamente una mezca de Helio y Neón, los dos haces de luz se reflejan en espejos, por último, una bateria fotoeléctrica captura los patrones de interferencia generados. El patrón de interferencia indica la tasa de giro del vehículo, como se indico anteriormente, una aeronave tiene tres giros principales (guiñada, alabeo y cabeceo), por lo que se deben instalar tres RLG perpendiculares al eje de giro. Estos sistemas presentan una medida de la rotación con gran exactitud, un tiempo de respuesta corto, son confiables y muy ligeros y compactos. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{anillolaser.jpg}
+    \caption{\centering Esquema de funcionamiento del giróscopo de anillo láser.\textit{ Fuente:Apuntes equipos y sistemas embarcados UCLM}}
+    \label{fig:cabese}
+\end{figure}
+
+
+La señal de interferencia se traduce en una frecuencia, que es directamente proporcional a la velocidad angular del sistema, y se expresa mediante la siguiente ecuación: 
+\begin{equation}
+\Delta f = K \omega, \quad K = \frac{4A}{\lambda_0 p}
+\end{equation}
+
+Donde \(A\) es el área de la cavidad por la trayectoria del láser, \(p\) es la longitud del camino recorrido y \(\lambda_0\) es la longitud de onda de la luz.\\
+
+Sin embargo, un problema común del giroscopio láser de anillo es el fenómeno de bloqueo de fase ("lock-in"), que ocurre cuando las frecuencias de los haces son tan cercanas que terminan sincronizándose, impidiendo la detección de rotaciones muy pequeñas. Para evitar este efecto, se introduce un mecanismo de dithering, que consiste en hacer oscilar la cavidad óptica de manera controlada mediante un actuador piezoeléctrico, esta vibración extra provoca un movimiento oscilatorio que elimina el bloqueo (mantiene los haces láser separados en frecuencia), como la oscilación extra es conocida, se pueda filtrar mediante un procesamiento electrónico y recuperar la señal de rotación verdadera, de esta forma se asegura mediciones precisas en todo momento.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{realgiroscopiolaser.jpg}
+    \caption{\centering Giróscopo de anillo láser .\textit{ Fuente:Apuntes equipos y sistemas embarcados UCLM}}
+    \label{fig:cabe}
+\end{figure}
+
+\section{Giróscopos MEMS}
+
+Los giroscopios MEMS (Micro-Electromechanical System) son los más utilizados hoy en día para la detección de rotación en aeronaves, la clave se encuentra en su miniaturización y en una mayor integración en los sistemas de navegación inercial. Su funcionamiento se basa en el efecto Coriolis, que se presenta cuando un objeto en movimiento está dentro de un sistema de referencia en rotación.
+ 
+\begin{equation}
+F_c = -2m (\vec{\omega} \times \vec{v})
+\label{fig:colioris}
+\end{equation}
+
+Esta fuerza aparente provoca una desviación en la trayectoria del objeto, la cual se puede medir y convertir en una señal eléctrica para determinar la velocidad de rotación.\\
+
+En la práctica, se usa la configuración del diapason, se basa en un sistema de dos masas que  vibran continuamente en direcciones opuestas, pero el mismo valor de velocidad sobre un eje y están sujetas a la misma rotación. La fuerza Coriolis hace que cada masa se desplace de manera oscilante en sentidos opuestos.\\
+
+Con la diferencia de distancias entre las masas y la estructura se obtiene una diferencia de capacitancia \footnote{La capacitancia es la capacidad de un componente de recoger y de almacenar energía en forma de carga eléctrica, depende de la permisividad del vacio \(E_0\), el área de la placa y de la distancia, siendo la única variable la distancia a la que se encuentra de la placa.} recogidos por sensores de capacitancia, con ese desplazamiento se calcula la fuerza colioris y por último se despeja la rotación del sistema aplicando la ecuación \ref{fig:colioris}.
+
+\begin{figure}[H]
+    \centering    
+  \begin{tabular}{c c}  
+        \includegraphics[width=0.45\textwidth]{colioris.jpg} & 
+        \includegraphics[width=0.55\textwidth]{diapason.jpg} \\
+    \end{tabular}
+
+    \caption{\centering Efecto Colioris y montaje en diapasón.\textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control.}}
+    \label{fig:colioris}
+\end{figure}
+
+Además, los MEMS pueden integrar varios sensores en el mismo chip para formar un sistema AHRS (Sistema de Referencia de Actitud y Rumbo) compacto. Un solo dispositivo puede medir la rotación sobre los tres ejes espaciales colocando tres giroscopios MEMS en orientación ortogonal. Esto permite utilizar sistemas de navegación más pequeños y económicos en aeronaves modernas, lo que ha promovido su introducción en nuevas generaciones de aeronaves y en sistemas autónomos.
+
+\begin{figure}[H]
+    \centering    
+  \begin{tabular}{c c}  
+        \includegraphics[width=0.35\textwidth]{mems1.jpg} & 
+        \includegraphics[width=0.35\textwidth]{mems2.jpg} \\
+    \end{tabular}
+
+    \caption{\centering Instrumento MEMS, el oscilador se encuentra en un chip de silicio y la precesión po rotación se traduce en cambio de capacitancia del oscilador.\textit{ Fuente: Apuntes equipos y sistemas embarcados.}}
+    \label{fig:colioris2}
+\end{figure}
+
+Los MEMS han transformado los sistemas de navegación inercial debido a su bajo consumo de energía, pequeño tamaño y alta fiabilidad. Su aplicación en aeronaves, drones y naves espaciales ha aumentado la estabilidad y agilidad de los sistemas de control de vuelo, convirtiéndose en la tecnología líder en los sistemas de navegación de próxima generación. \\
+
+La precesión por rotación se traduce en cambios de capacitancia. Estos sistemas permiten integrar varios sensores en un solo chip, creando sistemas AHRS (Attitude and Heading Reference System)  que incluyen inclinómetros, giróscopos y acelerómetros.
+
+\subsection{Acelerómetros MEMS}
+
+Los sensores de aceleración MEMS son dispositivos miniaturizados que permiten medir la aceleración en uno o más ejes mediante principios mecánicos y eléctricos. Se integran en chips de silicio junto con giroscopios MEMS, lo que permite que un solo dispositivo pueda proporcionar información completa sobre el movimiento de un objeto en el espacio.\\
+
+La masa sensible está suspendida por resortes dentro del chip, sirviendo como base para el sensor de aceleración MEMS. Cuando el dispositivo acelera en una dirección, la masa se mueve en la dirección de la aceleración. Este desplazamiento se mide obteniendo la capacitancia entre las placas que se mueven, conectadas a la masa en movimiento y las placas estacionarias en el chip.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{aceleramems.jpg}
+    \caption{\centering Implementación MEMS a un acelerómetro contenido en un solo eje.\textit{ Fuente: Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:mems12}
+\end{figure}
+
+Se mide la variación de capacitancia entre la placa móvil (que está unida a la masa) y las placas fijas dentro del chip, y las placas fijas dentro del chip. La relación se expresa matemáticamente como:
+\begin{equation}
+C_{0} = \frac{E_{0} E A}{d}
+\end{equation}
+
+Donde:
+\begin{itemize}
+\item \(C_{0}\) es la capacitancia inicial
+\item \(E_{0}\) es la permitividad del vacío
+\item E es la permitividad relativa del material separador
+\item A es el área de los electrodos 
+\item d es la distancia entre las placas.
+\end{itemize}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{aceleramems2.jpg}
+    \caption{\centering Esquema de un acelerómetro MEMS\textit{ Fuente: \href{https://www.instrumentationtoday.com/basic-instrumentation/page/3/}{Instrumentationtoday}}}
+    \label{fig:mems2}
+\end{figure}
+
+Luego, para convertir el movimiento en una señal eléctrica interpretable, se utiliza una modulación con ondas cuadradas, una señal digital que oscila entre valores positivos y negativos de volatajes de forma peridica. Se aplican ondas cuadradas de voltaje a las placas fijas del sensor, sintiendo los efectos de las ondas cuadradas gracias a la capacitancia. La masa móvil está conectada a una placa adicional que no genera señal (salida neta nula) cuando está en la posición de equilibrio. Cuando la masa se desplaza hacia un lado debido a la aceleración, se genera una señal cuadrada diferencial cuya amplitud es proporcional al desplazamiento de la masa. La fase de la señal detectada en comparación con la onda original indica la dirección de la aceleración.\\
+
+La señal recibida se amplifica y se transmite a un demodulador, que registra la amplitud de la onda cuadrada. La salida del demodulador es una señal de voltaje continua proporcional a la aceleración. Esta información se utiliza en sistemas de navegación inercial, estabilización de vuelo y control de movimiento en aeronaves, vehículos espaciales y otros sistemas.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{aceleramems3.jpg}
+    \caption{\centering Electrónica usada para convertir la aceleración en una señal eléctrica. \textit{ Fuente: Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:mems3}
+\end{figure}
+
+Un único sensor de aceleración MEMS solo puede medir la aceleración en un eje específico. Para obtener la aceleración absoluta en tres dimensiones, se colocan tres sensores ortogonales en el chip, permitiendo medir el movimiento en los ejes X, Y y Z. Gracias a la miniaturización de la tecnología MEMS, estos sensores pueden integrarse en un único chip.
+
+
+

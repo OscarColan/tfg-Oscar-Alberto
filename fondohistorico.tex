@@ -1,0 +1,103 @@
+% Interlineado:
+
+\setstretch{0.35} 
+
+
+\pagestyle{empty} % Suppress headers and footers on this page
+
+~\vfill % Push the text down to the bottom of the page
+
+\noindent Escuela de ingeniería Industrial y Aeroespacial de Toledo \\ % Copyright notice
+
+\noindent \textsc{Grado de ingeniería aeroespacial}\\ % Publisher
+
+
+\onehalfspacing
+\noindent El libro \textit{Sistemas de navegación y de vuelo automático de aeronaves} tiene como propósito profundizar en el módulo profesional homónimo, destinado a los estudiantes del Grado Técnico Superior en Mantenimiento de Sistemas Electrónicos y Aviónica en Aeronaves. El autor, Oscar Alberto Colán Rabines, es estudiante de Ingeniería Aeroespacial, y la elaboración de esta obra constituye su Trabajo de Fin de Grado titulado\textit{ Desarrollo de material divulgativo en el ámbito de la tecnología.}
+
+
+\newpage
+\pagestyle{fancy}
+\begin{nosangria}
+\textbf{\Huge{Fondo histórico:}}\\
+\end{nosangria}
+\onehalfspacing
+
+Antes de explicar los sistemas de navegación aerea, comenzaremos hablando un poco sobre la historia aeronáutica, repasando los inicios de la navegación area.\\
+
+El 17 de diciembre de 1903, en Carolina del Norte, tuvo lugar un hecho que cambiaría la historia, los hermanos Wright realizaron el primer vuelo propulsado y tripulado. Este primer vuelo solo duró 12 segundos y recorrío 36 metros.\\
+
+\begin{figure}[H] 
+	\centering 
+	\includegraphics[width=0.5\textwidth]{Wright Flyer III.jpg} % Include the figure image
+	\caption{\centering Wilbur observa a su hermano Orville en el vuelo del Flyer III, siendo este el primer vuelo del mundo. \textit{Fuente: \href{https://aertecsolutions.com/2016/04/04/evolucion-en-la-estructura-de-las-aeronaves}{Aertecsolutions}}}
+	\label{fig:placeholder} % Unique label used for referencing the figure in-text
+\end{figure}
+
+Más de un siglo después, el avión ha pasado a ser el transporte principal para largas distancias, esto es debido a la mejora estructural del avión y a las distintas infraestructuras que lo permite operar.\\
+
+En un comienzo, cuando los aviones tenían un número reducido y con pocas prestaciones, el objetivo principal era conseguir un modelo capaz de alcanzar mayor velocidad, mayor autonomía, mayor control, etc. Según iban lograndose estos objetivos surgió un nuevo inconveniente, el piloto debía ser capaz de conocer donde se encontraba en cada momento y como llegar de un punto a otro, por ello se desarrollaron varías técnicas de navegación.\\
+
+El Flyer de los hermanos Wright tan sólo disponía de un tacometro, para saber las revoluciones del motor; un anemómetro para conocer la velocidad relativa y un crónometro.
+Con el paso de los años la instrumentacion a bordo fue aumentando y volviéndose más complejo. Llego al punto de necesitar ingenieros o mecánicos de vuelo para supervisar los distintos sistemas.\\
+\newpage
+
+\begin{figure}[H] 
+	\centering 
+	\includegraphics[width=0.5\textwidth]{Cabina_antigua.jpg} % Include the figure image
+	\caption{\centering Cabina con dos pilotos y un ingeniero para supervisar los distintos sistemas. \textit{Fuente: \href{https://www.facebook.com/photo.php?fbid=953769662772159&id=100044174032530&set=a.286676282814837}{Facebook}}}
+	\label{fig:placeholder} % Unique label used for referencing the figure in-text
+\end{figure}
+
+Actualmente este trabajo es realizado por las computadoras, dando la información al piloto a través de varías pantallas en cabina, conocido como "Fullglass Cockpit".\\
+
+\begin{figure}[H] 
+	\centering 
+	\includegraphics[width=0.5\textwidth]{Fullglass Cockpit.png} % Include the figure image
+	\caption{\centering  FullGlass Cockpit ubicada en la cabina de piloto.  \textit{Fuente: \href{https://es.m.wikipedia.org/wiki/Archivo:AirBaltic_Bombardier_CS300_launch_event_(31581897816).jpg}{AirBaltic Bombardier}}}
+	\label{fig:placeholder} % Unique label used for referencing the figure in-text
+\end{figure}
+
+Al mismo tiempo que los sistemas de las aeronaves iban mejorando, la cantidad de aeronaves fue incrementando a tal punto que fue necesario la organizacion de los vuelos para garantizar su seguridad, lo que lleva al origen de la circulación aérea.\\
+
+Se define entonces la navegación aérea como el conjunto de medios, técnicas y procedimientos que se disponen para que una aeronave en vuelo pueda determinar la posición y la dirección a seguir, así como tomar las acciones de guiado para alcanzar el destino deseado de manera segura, fluida y eficente. En los siguientes capitulos nos centraremos en explicar en detalle todos los sistemas de aviónica que procuran alcanzar este objetivo.\\
+
+La navegación aérea, como fenómeno que va más allla de las fronteras de los estados, necesita acuerdos y criterios comunes para el desarrollo y operación de los servicios aéreos internacionales. Es por ello que en 1944 Estados Unidos convocó a varios países aliados a la Conferencia de Chicago, con el fin de reunificar varios acuerdos vigentes hasta entonces y lograr una legislación de caracter internacional que regulase la navegación aérea y facilitase su desarrollo de cara a las décadas siguientes.\\
+
+En total 52 países habían firmado el nuevo convenio sobre aviación civil conocido como el Convenio de Chicago, donde se sentaron las bases de las normas y procedimientos de la navegación aérea. Dichos paises crearon la Organizacion de Aviacion Civil Internacional, OACI (ICAO - International Civil Aviation Organization), con el objetivo de ejercer la administración y velar por la aplicación del Convenio de Chicago.\\
+ 
+Para la actuación de los objetivos, OACI tiene establecidos 19 anexos relacionados con la regulación de la aviación civil, destacamos los más involucrados en el temario del libro:\\
+
+\begin{itemize}
+	\item Anexo 6: Operación de aeronaves.
+	\item Anexo 10: Telecomunicaciones aeronáuticas.
+	\item Anexo 11: Servicios de tránsito aéreo.\\
+\end{itemize}
+\newpage
+
+\pagestyle{fancy}
+\begin{nosangria}
+\textbf{\Huge{Ténicas de navegación aérea:}}\\
+\end{nosangria}
+
+A continuación, explicaremos brevemente los métodos y procedimientos que se utilizan en aviación:
+\begin{itemize}
+\item \textbf{Navegación visual:} Se basa en la observación del piloto y a ayudas visuales como faros. Es el modo de navegación más elemental.\\
+
+\item \textbf{Navegación a estima:} Se basa en parametros conocidos gracias a los instrumentos a bordo, como la velocidad, el tiempo y el rumbo de la aeronave. Estos parámetros dan lugar a errores, por lo que la posición calculada es sólo una estimación. Este tipo de navegación se puede perfeccionar y dar lugar a la navegación inercial.\\
+
+\item \textbf{Navegación radio-eléctrica:} Este tipo de navegación hace uso de radioayudas, estas ayudas dan información de posición y guiado. Esta técnica limita el uso del espacio aéreo a unas red de rutas determinadas, lo que impide la optimización del espacio aéreo.\\
+
+\item \textbf{Navegación de área:} Con esta técnica una aeronave es capaz de escoger cualquier trayectoria. Se escogen puntos virtuales a lo largo de la ruta sin que tengan que coincidir con las instalaciones. \\
+\end{itemize}
+
+En este libro divulgativo nos centraremos en los sitemas de navegación radio - electrica o radio navegación. En la Figura \label{fig:radionavegacionxd} se observa una linea de tiempo junto con un arbol de familia de los sistemas de radionavegación.
+
+\begin{figure}[H] 
+	\centering % Horizontally center the figure on the page
+	\includegraphics[width=1\textwidth]{sistemasradionavegacion.jpg} % Include the figure image
+	\caption{\centering Linea de tiempo de los sistemas de radio navegación \textit{Fuente: \href{https://flyingthebeams.com/early-radio-nav-1960-2000}{flyungthebeams.com}}}
+	\label{fig:radionavegacionxd} % Unique label used for referencing the figure in-text
+\end{figure}
+
+\newpage

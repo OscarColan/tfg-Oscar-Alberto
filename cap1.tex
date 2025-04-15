@@ -1,0 +1,448 @@
+\setcounter{page}{1}
+\chapter{Tomas de presión}\index{Sectioning}
+\setchapterimage{orange3.jpg} % Chapter heading image
+\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+Una vez visto el marco jurídico que regula la navegación aérea, en este primer capítulo se abordarán las tomas de la presión que rodean al avión en un punto determinado del espacio, los cuales son capaces de proporcionar información vital para el vuelo, esta presión surge del aire en la atmósfera.\\
+
+Muchos de los instrumentos en aviación dependen de la medición de la presión de fluidos como aire, combustible y aceite. Dicha presión se puede medir aplicando la fuerza ejercida por el fluido sobre un transductor, que convierte esa presión en una señal eléctrica. Esta señal es amplificada y posteriormente transmitida a una visualización que muestra la información relevante al piloto. En este capítulo nos centraremos en las distintas maneras de captar la información de la presión del aire del exterior, que nos servirá posteriormente para obtener los datos del aire, como la velocidad del avión y la altitud.\\
+
+\section{Atmósfera estándar}
+En primer lugar, se definirá la atmósfera terrestre como una envoltura de aire que rodea el planeta, la cuál se puede describir en términos de capas a distintas altitudes, como si se tratase de las capas de una cebolla. Una de las características que distingue cada capa es cómo varía la temperatura y la presión.\\
+
+El sol calienta la superficie de la tierra y ésta a su vez transmite el calor por las capas más bajas, por eso en la troposfera, la temperatura disminuye linealmente con la altitud hasta alcanzar la tropopausa, el límite con la estratosfera (Figura\ref{fig:mi_figura}).\\
+
+Otro factor a tener en cuenta es que la gravedad atrae las partículas de aire de la atmósfera. A medida que nos alejamos del centro de la Tierra, los efectos gravitacionales disminuyen, lo que provoca una reducción progresiva de la presión atmosférica, ya que es el aire el responsable de aplicar presión a los objetos que se encuentre en su interior.\\
+
+\begin{figure}[H] 
+	\centering % Horizontally center the figure on the page
+	\includegraphics[width=0.65\textwidth]{presionatmosfera.jpg} % Include the figure image
+	\caption{\centering Debido a los efectos de la gravedad, se puede sentir menor presión en la cima de una montaña que al nivel del mar \textit{Fuente: \href{https://meritsensor.com/es/comprender-el-uso-y-la-funci\%C3\%B3n-de-los-sensores-de-presi\%C3\%B3n-piezoresistivos-mems/}{meritsensor}}}
+	\label{fig:mi_figurasa} % Unique label used for referencing the figure in-text
+\end{figure}
+
+Para la calibración de los instrumentos de presión, se utiliza el modelo dado por la Atmósfera Estándar Internacional (\textit{International Standard Atmosphere}, ISA). Donde, tras realizar múltiples medidas de los parámetros de presión, temperatura y densidad, en diferentes lugares y altitudes, se ha identificado que  el aire sigue un patrón más o menos estable. Según esta norma, la presión atmosférica al nivel del mar medio es de 1013,25 mbar con una temperatura de 15 \textdegree C.  También establece que hasta los 20 km de altitud, la temperatura desciende linealmente a una tasa de 6,5 \textdegree C por kilómetro, por encima de esta altitud la temperatura se mantiene estable en -56,6 \textdegree C. Este principio se observa claramente en la Figura\ref{fig:mi_figura}, que ilustra cómo varían la temperatura y la presión con la altitud.\\
+\begin{figure}[H] 
+	\centering % Horizontally center the figure on the page
+	\includegraphics[width=0.65\textwidth]{Atmosfera ISA 1.png} % Include the figure image
+	\caption{\centering Valores de presión, temperatura en función de la altitud según la ISA. \textit{Fuente: \href{https://greatbustardsflight.blogspot.com/2015/01/la-atmosfera-estandar.html}{Great Bustarsd Flight}}}
+	\label{fig:mi_figura} % Unique label used for referencing the figure in-text
+\end{figure}
+
+La disminución de la presión y temperatura con la altitud fue introducida por la OACI en 1952, y forma parte de un modelo estándar que no considera la presencia de polvo, vapor de agua, vientos o turbulencias. Aunque no refleja completamente las condiciones reales de la atmósfera, este modelo es ampliamente utilizado en el ámbito aeronáutico para estimar la presión, temperatura y densidad del aire, aunque esta información también se podría conseguir directamente, pero tiene la desventaja de aumentar la complejidad de los instrumentos, afortunadamente, el  propósito de estos sistemas no es alcanzar una precisión absoluta en los datos, sino garantizar que todas las aeronaves que circulen en el espacio aéreo utilicen la misma referencia en las maniobras, de este modo, aunque se introduzcan ciertos errores, se mantiene la seguridad en la navegación.\\
+
+\subsection{Principios de fluidodinámica}
+
+Para comprender mejor cómo el aire genera presión a los objetos, se debe razonar la ecuación de la hidrostática. Para ello, imaginemos un volumen de control en forma cúbica, como se representa en la Figura \ref{fig:mi_figura2}, donde el aire que rodea este volumen genera una presión "P", consideraremos el eje vertical como el eje z (ejes cartesianos en tres dimensiones). La presión no será exactamente la misma en la cara superior e inferior del cubo, existirá un variación de la presión debido a la distancia en el eje z. Para calcular esta variación de la presión, consideraremos que el sumatorio de fuerzas es cero, lo que supone que el cubo no se acelera, se encontrará quieto, pero esto no significa que no existan otros factores generando fuerza sobre el objeto, como es el caso de la fuerza gravitatoria (\(gravedad \cdot masa = gravedad \cdot volumen \cdot densidad\)).\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{volumendecontrol.jpeg}
+    \caption{\centering Variacion de la presión en un diferencial de volumen.  \textit{Fuente: Creación propia.}}
+	\label{fig:mi_figura2}
+\end{figure}
+
+Para realizar el balance de fuerzas asumiremos que el volumen de control es muy pequeño, de un tamaño diferencial de distancia. De forma que el volumen de control se define como \(dxdydz\) y la superficie donde se aplican las presiones es \(dxdy\). 
+\[
+\sum F = 0
+\]
+
+A un lado de la igualdad dejamos las fuerzas que generan una fuerza hacía arriba al objeto, y en el otro lado las que generan una fuerza hacía abajo:
+\[
+P_z \,  \cancel{dxdy} = \rho \cdot  \cancel{dxdy} dz \cdot g + (P_z + dP_z) \cdot  \cancel{dxdy}
+\]
+
+Despreciamos los términos de los ejes "x" e "y", obteniendo:
+\[
+P_z = \rho g dz + P_z+ dP_z  \rightarrow P_z = \rho g dz + P_z + \frac{dP_z}{dz} dz
+\]
+
+Gracias a esto, obtenemos lo comúnmente conocido como ecuación de la hidrostática:
+\begin{definicion}[Ecuación de la hidrostática]
+	\begin{equation}
+  	  \frac{dP}{dh} = -\rho g \rightarrow dP = -\rho g dh
+   	 \label{eq:hydrostatic}
+	\end{equation}
+\end{definicion}
+
+De la ecuación de los gases ideales sabemos que \(P = \rho \cdot R \cdot T\); donde R es una constante, podemos relacionar la presión con la temperatura. Luego, para dejar de considerar un objeto de tamaño diferencial, se debe integrar la ecuación \ref{eq:hydrostatic} junto con la expresión de los gases ideales, obteniendo:
+
+\begin{definicion} [Relación entre la presión y la temperatura]
+	\begin{equation}
+		P(h) =P_0 \left(\frac{T(h)}{T_0}\right)^{\frac{-g}{aR_{aire}}}
+		 \label{eq:Presiontroposfera}
+	\end{equation}
+	Donde a = - 0.0065, \( R_{aire} = 287 \, \text{J/(kg} \cdot \text{K)} \), g = 9.80665 \( \text{m/s}^{2} \).
+\end{definicion}
+El valor de la constante ``a'' corresponde con un valor determinado por la ISA para su uso en la troposfera, por lo que la expresión de la Ecuación \ref{eq:Presiontroposfera} únicamente sirve hasta las 11 km de altitud.\\
+
+De la misma manera, se puede expresar la densidad en función de la temperatura:
+\begin{equation}
+\rho(h)=\rho_{0}\left(\frac{T(h)}{T_{0}}\right)^{-1-\frac{g}{a R_{aire}}} 
+\end{equation}
+
+Una vez conocidas las limitaciones del ISA es útil conocer las correcciones necesarias cuando la atmósfera real difiere considerablemente con lo estimado por culpa de la modificación de densidad debidas a las variaciones de temperatura. Las aeronaves suelen estar equipadas con una sonda de Temperatura del Aire Exterior (OAT, \textit{Outside Air Temperature}), y si la temperatura medida fuera de la aeronave es \( T \), expresada en Kelvin, podemos determinar la desviación de las condiciones del ISA (\( \Delta T \)). A partir de la ecuación de estado \( P = \rho R T \), podemos escribir:
+\begin{equation}
+\frac{P}{R} = \rho_{\mathrm{ISA}} T_{\mathrm{ISA}} = \rho_{\mathrm{ACT}} T_{\mathrm{ACT}} = \rho_{\mathrm{ACT}} \left(T_{\mathrm{ISA}} + \Delta T\right) \quad \Rightarrow \quad \rho_{\mathrm{ACT}} = \frac{\rho_{\mathrm{ISA}} T_{\mathrm{ISA}}}{T_{\mathrm{ISA}} + \Delta T}
+ \label{eq:CorrecciónTemperatura}
+\end{equation}
+
+
+Donde  \(\rho_{A C T} \) es la densidad real del aire fuera de la aeronave que corresponden a la corrección de temperatura, \( \Delta T \), a la temperatura ISA, \(T_{I S A} \), medida en Kelvin. Así, la Ecuación \ref{eq:CorrecciónTemperatura} predice que si la temperatura medida a una altitud dada es menor que \( T_{I S A} (\Delta T < 0) \), entonces la densidad real del aire, \(\rho_{A C T} \), será mayor que la predicha por el ISA, \(\rho_{I S A} \), y viceversa. Esto es intuitivamente obvio, pero la Ecuación  \ref{eq:CorrecciónTemperatura} permite un cálculo rápido de la diferencia conociendo solo la temperatura exterior del aire.\\
+
+\section{Presiones aerodinámicas}
+
+El ISA describe cómo varía la presión estática con la altitud, no tiene en cuenta las perturbaciones debidas a la aeronave, sin embargo, para comprender los fenómenos fundamentales como la sustentación, empuje y la operación de algunos de los instrumentos que estudiaremos en los siguientes capítulos, es esencial introducir la definición de presión dinámica, la cual es producida por el movimiento relativo del aire que impacta contra una superficie, para poner un ejemplo práctico, este fenómeno físico se ve reflejado al sacar la mano por la ventanilla del coche cuando este se encuentra en movimiento, la mano siente una presión en sentido opuesto a la dirección por estar frenando al aire.\\
+
+Para las siguientes explicaciones, es indispensable la definición de algunos conceptos de termodinámica. 
+
+subsection{Principios de termodinámica}
+
+Introducimos el concepto de balance de energía, como la diferencia de energía que entra y sale del sistema. La energía se puede entender como la distancia que es capaz de mover una fuerza aplicada al sistema.
+
+\begin{definicion}[Balance de energía] Considerando un sistema cerrado, donde la energía no es difiere en función del tiempo, se puede decir que:
+\begin{equation}
+\dot{W} - \dot{Q} =  \sum h_{ec} \dot{m}_{e} - \sum h_{es} \dot{m}_{s}
+\label{eq:Balancedeenergia}
+\end{equation}
+\end{definicion}
+
+Conceptos clave:
+
+\begin{itemize}
+    \item \(\dot{Q}\): \textbf{Calor}. Energía que aparece como consecuencia de una diferencia de temperatura entre un sistema y el medio. Este valor suele indicar la energía que se pierde.
+    
+    \item \(\dot{W}\): \textbf{Trabajo}. Energía que genera o requiere el sistema. Según este convenio de signos, cuando es positivo indica que el sistema requiere trabajo, y cuando es negativo el sistema genera trabajo. Este valor suele indicar la energía que se le da al sistema para que este funcione, aunque este valor indica lo contrario en el caso de que se quiera conseguir energía (como en un molino de viento)
+    
+    \item \textbf{Entalpía Total}: Función de estado del sistema, se puede entender como la energía interna (por el movimiento de las partículas) y la externa (como la cinética y la potencial gravitatoria) que sufre el sistema, se define como:
+    \[
+	h_t = h + \frac{1}{2} V^{2} + gz
+	\]   
+     
+    El valor "h" es la entalpía especifica, que se obtiene a partir de:
+    \[
+    h = u + P \nu
+    \]
+    Donde "u" es la energía interna y \(P \nu\) es la presión por el \textit{volumen específico}, siendo este el inverso de la densidad \(\frac{1}{\rho}\).\\
+    \end{itemize}
+
+
+Ahora es necesario introducir la definición del balance de entropía. Parecido al caso anterior, no tendremos en cuenta la entropía que varía en función del tiempo. La entropía depende fundamentalmente de dos procesos, la entrada y salida de calor junto con la entrada y salida de masa. Es así como se puede definir el balance de entropía:
+
+\begin{definicion}[Balance de entropía]
+\begin{equation}
+\sum S_s \dot{m}_s - \sum S_e \dot{m}_e = \sum \frac{\dot{Q}_F}{T_F} + \dot{\sigma} 
+\label{eq:Balancedeentropia}
+\end{equation}
+\end{definicion}
+
+La entropía (S) es un valor relacionado con el ordenamiento molecular de la materia.
+
+\begin{tcolorbox}[colframe=black,colback=white,arc=2mm]
+\centering
+\(\uparrow\) Desorganización = \(\uparrow\) Entropía
+\end{tcolorbox}
+
+Conceptos Clave:
+\begin{itemize}
+    \item \(\frac{\dot{Q}_F}{T_F}\): Calor que atraviesa la frontera  del volumen de control dividido entre la temperatura de la frontera.
+    \item \(\dot{\sigma}\): Entropía generada por unidad de tiempo o \textbf{IRREVERSIBILIDAD}.
+\end{itemize}
+
+El segundo principio de la termodinámica establece la direccionalidad de los procesos espontáneos, donde la variación de entropía en cualquier proceso será siempre mayor o igual que 0.
+
+\begin{tcolorbox}[colframe=red,colback=white,arc=2mm]
+\centering
+\(\dot{\sigma} \geq 0\)
+\end{tcolorbox}
+
+Esto indica que la entropía se puede generar o quedar estable pero nunca que se pueda destruir.
+
+\subsection{Magnitudes de remanso} \label{subsec:magnitudesderemanso}
+
+En esta parte de la sección, asumiremos que el fluido (aire) es incompresible, es decir, su densidad es constante con la presión. Para relacionar la presión dinámica con la velocidad del aire, consideremos que el fluido se frena contra una superficie (choca), como se observa en la Figura \ref{fig:presiondinamica}.
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.5\textwidth]{remanso.jpeg}
+    \caption{\centering Flujo constante de aire frenando en una superficie. \textit{Creación propia}}
+    \label{fig:presiondinamica}
+\end{figure}
+
+El punto donde el fluido choca con la superficie es el que se nombra como punto de remanso, ya que es el lugar donde se detiene el fluido.\\ 
+
+Ahora, las próximas simplificaciones serán claves para entender la diferencia entre presión dinámica y estática, así como para conocer cuando se pueden aplicar y el punto en el que se comienzan a diferir exageradamente con la realidad:
+
+\begin{itemize}
+    \item Asumimos que no hay aporte de calor. \(\dot{Q} = 0\)
+    \item Consideramos que no hay incremento de masa, la cantidad de aire antes y después del choque es la misma: \(\dot{m}_{entrada} = \dot{m}_{salida}\).
+    \item El aire que choca es incapaz de mover la superficie, por lo que no hay variación del trabajo ya que el sistema no requiere ni genera energía (recordemos que la energía es el desplazamiento que genera una fuerza). \(\dot{W} = 0\)
+    \item Consideramos que no hay incremento de entropía, \(\dot{\sigma} = 0\)
+\end{itemize}
+
+Con todo esto, de los conceptos vistos de termodinámica, la ecuación \ref{eq:Balancedeenergia} que como:
+\[
+\cancel{\dot{W}} - \cancel{\dot{Q}} = \sum h_{te} \dot{m}_e - \sum h_{ts} \dot{m}_s
+\]
+
+Al no haber incremento de masa: 
+\[
+\dot{m}_{entrada} = \dot{m}_{salida} = \dot{m}
+\]
+\[
+h_{te} \dot{m} - h_{ts} \dot{m} = 0 \quad \Rightarrow \quad h_{te} = h_{ts} \quad \Rightarrow \text{Isentálpico}
+\]
+
+Descomponemos las expresiones de entalpias totales y tenemos:
+\begin{equation}
+h_e + \frac{1}{2}V_e^2 + g z_e = h_s + \frac{1}{2}V_s^2 + g z_s
+\label{eq:isoentálpicoxd}
+\end{equation}
+
+Por otro lado, la ecuación \ref{eq:Balancedeentropia} que como:
+\[
+\cancel{\frac{dS_{vc}}{dt}} = \cancel{\sum \frac{\dot{Q}}{T}} + \sum \dot{m}_e S_e - \sum \dot{m}_s S_s + \cancel{\dot{\sigma}}
+\]
+\[
+S_e = S_s \quad \Rightarrow \quad \text{Isoentrópico}
+\]
+
+Como tenemos un fluido incompresible y con las consideraciones anteriores, podemos relacionar que: 
+\[
+h = u + P \nu = cT + \frac{P}{\rho} \quad 
+\]
+\[
+\Delta S = S_e - S_s = c \ln \left( \frac{T_2}{T_1} \right) \quad \rightarrow \quad T_2 = T_1 \quad \rightarrow \quad T_{\text{remanso}} = T_{\text{estática}}
+\]
+
+Por lo que la ecuación \ref{eq:isoentálpicoxd} queda descrita como:
+\begin{equation}
+h_{t_{estática}} = h_{t_{remanso}} \quad \rightarrow \quad c \cancel{T_e} + \frac{P_e}{\rho} + \frac{1}{2} V_e^2 + g z_e = c \cancel{T_r} + \frac{P_r}{\rho} + \frac{1}{2} V_r^2 + g z_r
+\label{eq:magnitudesderemanso}
+\end{equation}
+Para la condición de remanso tenemos que:
+\begin{equation}
+P_R = P_e + \frac{1}{2} \rho V_e^2 + \rho g \Delta z
+\end{equation}
+
+Consideramos la variación de presión es mucho mayor que por variación de altura. Por lo que tenemos:
+
+\begin{definicion}[Presión de remanso:]
+    \begin{equation}
+    P_R = P_e + \frac{1}{2} \rho V^2
+    \label{eq:presionderemanso}
+    \end{equation}
+\end{definicion}
+
+\begin{itemize}
+	\item \( P_{R} \) es la presión de remanso o presión total.
+	\item \( P_{e} \) es la presión estática.
+	\item \( \frac{1}{2} \rho V^{2} \) es la presión dinámica. 
+	\end{itemize}
+\bigskip
+
+\textbf{La presión dinámica} es la presión del fluido que choca contra la superficie, si no se tiene en cuenta la energía disipada por el calor que genera frenar el fluido, la energía cinética se convierte en presión, y la expresión \ref{eq:magnitudesderemanso} es válida para comprender estos fenómenos, donde, la velocidad de remanso es cero, siendo ahora la presión de remanso la presión real que recibe el sistema y la presión estática la atmosférica.
+
+\begin{definicion}[Temperatura de remanso:]
+    \begin{equation}
+    T_R = T_e
+    \end{equation}
+\end{definicion}
+
+Con las consideraciones anteriores (flujo isoentrópico e incompresible), observamos que la temperatura no se ve afectada por el aumento de presión en el punto de remanso. Aunque en apartados posteriores se observará como esta temperatura aumenta en el contexto de altas velocidades.
+
+
+\section{Sistemas pitot-estática}
+Una vez analizadas las diferencias entre presión dinámica y la estática, procedemos a explicar los instrumentos a bordo encargados de la recolección de estos datos.
+
+\subsection{La sonda de presión estática}
+
+Como ya se ha visto, la presión estática alrededor de la aeronave da información clave en los instrumentos de vuelo. La forma de obtener este parámetro es mediante orificios o sondas que comuniquen la presión a través de tuberías hacía los transductores.\\
+
+La sonda de presión estática requiere una posición cuidadosa en la estructura de la aeronave. Dado que las aeronaves no vuelan dentro de un fluido ideal, sino que se tienen que tener en cuenta los resbalamientos, ángulos de ataque, ondas de choque, etc. es muy complicado que la entrada permanezca perpendicular al flujo de aire, por lo que se diseña de forma cuidadosa para evitar perturbaciones y reducir la cantidad de presión dinámica. No puede colocarse en la punta, ya que el aire en movimiento produce un punto de remanso, por lo que la sonda también mediría la presión dinámica. Tampoco puede tomarse atrás ya que la aeronave en movimiento produce una estela (sombra aerodinámica donde se generan vortices, conocidos como las calles de Von Kármán) y la presión tomada sería menor a la del ambiente. La única opción es tener los orificios ubicados al ras de la superficie.
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{c c}  % Dos columnas
+        \includegraphics[width=0.45\textwidth]{toma de presion estatica.png} & 
+        \includegraphics[width=0.40\textwidth]{toma de presion estatica a.jpg} \\
+        \textit{Fuente: \href{https://es.m.wikipedia.org/wiki/Archivo:Static ports (2650534383).jpg}{Wikipedia}} & \textit{Fuente: \href{https://www.germandrones.com/en/news/newsdetail/detail/tech-news-an-alternative-pitot-for-drones}{germandrones}}
+    \end{tabular}
+    \caption{Tomas de presión estática en fuselaje}
+\end{figure}
+
+Otro factor que influye negativamente en el funcionamiento de los sistemas de navegación es la formación de hielo en los orificios de los sensores. Como se mencionó anteriormente, a grandes altitudes la temperatura puede descender considerablemente, alcanzando hasta -56,5 \textdegree C. Para mitigar este problema, se instalan calefactores a cada una de las sondas que previenen la solidificación del agua. Otra estrategia común en aeronáutica consiste en instalar múltiples sondas estáticas, de las cuales el piloto puede seleccionar la más adecuada en caso de que se presente alguna anomalía en el funcionamiento.\\
+
+Durante el mantenimiento de las aeronaves, es fundamental prestar especial atención a todas las sondas, ya que cualquier error puede resultar en quemaduras en los mecanismos y en el deterioro de las sondas.
+
+\subsection{La sonda de pitot}
+
+Al contrario de lo visto anteriormente, el tubo de Pitot se encarga de obtener los datos de la presión total, debe colocarse directamente enfrentado al flujo del aire. El aire se frena y la presión obtenida es la suma de la presión estática y la presión dinámica (\ref{eq:presionderemanso}).\\
+
+Su estructura se basa en un tubo saliente del fuselaje de la aeronave, con una dirección paralela a la corriente. Se encuentra situado en zonas donde la perturbación del aire es mínima. En motores turbohélice debe encontrarse situado lejos del flujo creado por las hélices.\\
+
+En aeronaves con una operación limitada a velocidades inferiores a la del sonido, la ubicación de la posición de los tubos de pitot con toma estática se encuentran normalmente en la punta del ala o de los estabilizadores verticales y laterales. En cambio, para velocidades superiores a la del sonido, se suele ubicar justo delante del morro de fuselaje
+
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{c c}  % Dos columnas
+        \includegraphics[width=0.40\textwidth]{Fuente de Pitot.png} & 
+        \includegraphics[width=0.45\textwidth]{Fuente de Pitot a.jpg} \\
+        \textit{Fuente: \href{https://www.eflyacademy.com/single-post/sistema-pitot-statico}{Eflyacademy}} & \textit{Fuente: \href{https://www.eflyacademy.com/single-post/qué-es-y-cómo-funciona-el-sistema-de-tubo-pitot-y-presión-estática}{Eflyacademy}}
+    \end{tabular}
+    \caption{Sondas de pitot}
+\end{figure}
+
+Las fuentes de presión de Pitot y estática suelen estar combinadas en un único instrumento.
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.8\textwidth]{Toma de pitotestatica.jpeg}
+    \caption{\centering Representación de la sonda de pitot-estática. \textit{Fuente: Sistemas electricos y electronicos de las aeronaves.}}
+    \label{fig:placeholder1}
+\end{figure}
+
+ Estos sistemas miden tanto la presión dinámica como la presión estática, lo cual se usará como fuente de información para los instrumentos barométricos, como el altímetro, el variómetro, y el anemómetro; sistemas en los que nos centraremos en el capítulo 2, aunque, en la Figura \ref{fig:esquemainstrumetosbarometricos} se muestra un esquema de como se comunican las fuentes de presión con los mencionados instrumentos barométricos.
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=1\textwidth]{Detección y transmisión de las presiones pitot y estáticas a.png}
+    \caption{\centering Detección y transmisión de las presiones pitot y estáticas. \textit{Fuente: \href{https://greatbustardsflight.blogspot.com/2017/09/analisis-de-indicaciones-erroneas-de.html}{greatbustardsflight}}}
+    \label{fig:esquemainstrumetosbarometricos}
+\end{figure}
+
+En el diseño de las sondas de pitot-estática, uno de los parámetros clave es la \textit{"limpieza aerodinámica"}, es decir, evitar las perturbaciones de la corriente de aire alrededor de la sonda, y así medir las presiones con mayor exactitud. Los tubos están montados concentricamente, el pitot se encuentra dentro y la presión estática entra por las ranuras alrededor de la carcasa. luego las presión se transmite por tubos metálicos. Los sistemas de calefacción para impedir la formación de hielo se encuentran alrededor del tubo de pitot, en los puntos donde es más probable que se forme hielo \ref{fig:placeholder1}.\\
+
+\section{Corrección de errores}
+Los errores de presión que ocurren al medir la presión total en un tubo de pitot y la presión ambiente en  la sonda estática, da como resultado la obtención de datos incorrectos, lo que lleva a medidas incorrectas por parte de los instrumentos barométricos y a las computadoras de datos de aire.\\
+
+Los errores que trabajaremos en esta sección son:
+
+\begin{itemize}
+\item Errores aerodinámicos en el sensor, debidos a que las lineas de corriente alrededor del instrumento de medida sufran irregularidades.
+\item Retrasos en la transmisión de presión.
+\end{itemize}
+
+\subsection{Corrección de posición de las tomas de presión}
+\subsubsection{Medición de la presión de pitot}
+
+En este apartado tendremos en cuenta el error existente debido a la posición de la sonda de pitot, esto se debe a que durante las maniobras del avión, el ángulo de ataque variable o el desplazamiento lateral generan errores en la medición. Las lineas de corriente no entran de forma "pura", a 90 \textdegree del eje de la sonda, sino que se ve afectada por la deflexión produciendo puntos de remanso en las esquinas.\\
+
+Dentro del diseño de las tomas de presión se le añade una sonda Kiel alrededor del tubo de pitot para reducir los efectos del incremento de ángulo de ataque, mejora el flujo en la entrada, reduciendo la perturbación de las lineas de corriente.
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{c c}  
+        \includegraphics[width=0.35\textwidth]{sondakiela.jpg} & 
+        \includegraphics[width=0.45\textwidth]{sondakielc.png} \\
+        Imagen real usado en coches de F1. & Representación del diseño. \\
+        \textit{Fuente: } \href{https://en.wikipedia.org/wiki/Kiel_probe#/media/File:X-31_Kiel_Probe_Close-up_Showing_Inside.jpg}{Wikipedia} &
+        \textit{Fuente: } \href{https://ntrs.nasa.gov/citations/19930094642}{NASA} 
+    \end{tabular}
+
+    % Tercera imagen centrada debajo de las dos primeras
+    \vspace{0.5cm}  % Espacio entre las imágenes
+    \includegraphics[width=0.40\textwidth]{sondakielb.png} \\
+    Principio de funcionamiento. \textit{Fuente: } \href{https://ntrs.nasa.gov/citations/19930094642}{NASA}
+
+    \caption{Representación de la sonda Kiel}
+\end{figure}
+
+
+Aun así, para grandes variaciones de ángulo de ataque o desplazamientos laterales puede haber errores en la medición, por lo que se deben aplicar correcciones basadas en mediciones de sensores de presión diferencial.\\
+
+Previamente se realizan pruebas en túneles de viento y con vuelos de prueba a la aeronave en distintas maniobras y se  determina una función de corrección basada en estas mediciones. En sistemas analógicos las correcciones se aplican a los potenciómetros que regula la corriente de entrada en el circuito mediante una red de resistencias preajustadas, las salidas son conformadas eléctricamente para compensar los errores conocidos.  Pero en sistemas modernos, las correcciones se implementan digitalmente en la aviónica, donde los datos de presión son procesados en tiempo real por algoritmos de compensación que ajustan las mediciones continuamente.\\
+
+
+\subsubsection{Medición de la toma estática}
+Parecido al caso de los tubos de pitot, el ángulo de ataque variable favorece a la creación de presión en los orificios de la sonda estática, la sonda se ve afectada por las perturbaciones del aire, por lo que, la presión estática en ese punto difiere de la presión estática de la corriente libre. Es por ello que se deben tener varias tomas de presión estática alternativas, de manera que el piloto pueda elegir que fuente de estática tomar para cada ocasión.\\
+
+A parte, se deben calibrar los sistemas de presión estática, esta corrección se basa en medir la presión ambiente real, fuera de la aeronave y comparándola con la registrada por la sonda. Aunque en vez de comparar la presión estática directamente, primero se debe comparar la velocidad del aire real con la detectada por la aeronave, lo que permite registrar errores de antemano.\\
+
+Métodos de detectar la presión ambiente real:
+\begin{itemize}
+\item Tower Flypast: Mide la presión en un punto de referencia y gracias a la diferencia de altura y el ajuste de temperatura se obtiene la presión real del avión.
+\item Trailing Cone: Permite calibrar la presión sin depender de instalaciones en tierra. Se basa en colocar un sensor de presión fuera del campo aerodinámico de la aeronave para minimizar los errores de medición, El sensor se transporta mediante un cable largo, y su estabilidad depende del diseño y ubicación.\\
+\end{itemize}
+
+Además hay otras formas de calibrar la presión estática:
+\begin{itemize}
+\item Radar Tracking: Radar terrestre que mide la altitud y velocidad de la aeronave en vuelo. Compara la altitud derivada de las mediciones de presión estática con la obtenida por el radar, determinando así los errores.
+\item Paced Aircraft Method: Una aeronave con un sistema pitot-estático bien calibrado vuela en formación junto con una aeronave de prueba. Se comparan los valores de presión estática de ambas aeronaves para determinar los errores en la aeronave de prueba.
+\item GPS Altimetry: Utiliza receptores GPS de alta precisión para calcular la altitud de la aeronave. Luego, se comparan estos datos con la altitud obtenida de la presión estática para identificar los errores de calibración.
+\end{itemize}
+
+\subsection{Posibles errores en las tuberías de transmisión}
+
+Las tuberías por las que circula la presión estática y de pitot son metálicas (aleación ligero o tungum), sin costura y resistentes a la corrosión, con componentes instalados para evitar la vibración. El diámetro elegido es en función de la distancia desde las fuentes hasta los instrumentos (a mayor distancia entre las tuberías mayor debe ser el diámetro), se debe tener especial cuidado a la perdida de presión y el retarde de tiempo. También se debe tener cuidado si el diámetro es menor, ya que se puede producir bloqueo por la posibilidad de acumulación de masa.
+
+
+\subsection{Corrección de errores por la compresibilidad del aire}
+En el subapartado \ref{subsec:magnitudesderemanso} se calculó los valores de remanso asumiendo que el aire se comportaba como un fluido incompresible, lo cúal si se puede hacer pero únicamente para velocidades del aire inferiores 0,3 Mach. En este apartado consideraremos el fluido como un gas ideal calorificamente perfecto, donde \(C_p\) es el coeficiente a presión constante y \(C_v\) es el coeficiente a volumen constante, y consideramos ahora que \(h = C_p T + \frac{P}{\rho}\) y \(\Delta S = C_v ln(\frac{T_2}{T_1})\)  y partiendo de la expresión \ref{eq:isoentálpicoxd} tenemos:
+\[
+C_p T_e + \frac{1}{2} V_e^2 = C_p T_R + \frac{1}{2} V_R^2
+\]
+\[
+\frac{T_R}{T_e} = 1 + \frac{1}{2} \frac{V_e^2}{C_p T_e}
+\]
+\[
+\boxed{T_R = T_e + \frac{1}{2 C_p} V_e^2}
+\]
+Conociendo que la velocidad del sonido es: 
+\[
+a = \sqrt{\gamma R T}, \quad a^2 = \gamma R T
+\]
+\[
+C_p T = C_p \frac{a^2}{\gamma R_g} = a^2 \frac{C_p / C_v}{\gamma R_g / C_v} = a^2 \frac{\gamma}{\gamma (\gamma - 1)} = a^2 \frac{1}{\gamma - 1}
+\]
+\begin{definicion}[Relación entre la temperatura de remanso y la temperatura estática en función del número de Mach]
+	\begin{equation}
+		\left[ \frac{T_R}{T_e} = 1 + \frac{1}{2} \frac{V^2}{a^2} \frac{C_p}{\gamma R_g} = 1 + \frac{\gamma - 1}{2} M^2 \right]
+	\end{equation}
+\end{definicion}
+
+
+Véase que a diferencia del caso explicado en \ref{subsec:magnitudesderemanso} , ahora, la temperatura de remanso aumenta según se vaya aumentando el número de Mach.
+\begin{definicion}[Relación entre la presión de remanso y la presión estática en función del número de Mach]
+	\begin{equation}
+		\left[ \frac{P_R}{P_e} = \left( \frac{T_R}{T_e} \right)^{\frac{\gamma}{\gamma -1}} = \left( 1 + \frac{\gamma -1}{2} M^2 \right)^{\frac{\gamma}{\gamma -1}} \right]
+		\label{eq:realidadpresionesderemanso}
+	\end{equation}
+\end{definicion}
+
+Esta última expresión que relaciona la presión de remanso con la temperatura de remanso se obtiene al considerar que el fluido es un gas ideal calorificamente perfecto. A continuación, se observa en la gráfica \ref{fig:graficatas} cómo al aumentar la velocidad los efectos de la compresibilidad del aire empiezan a desviar los valores \(\frac{P_R}{P_e}\) obtenidos en la ecuación \ref{eq:presionderemanso} de la ecuación \ref{eq:realidadpresionesderemanso}
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.7\textwidth]{TAS_INCvsCOMP.jpg}
+    \caption{\centering Gráfica que muestra la desviación de la presión de remanso entre la presión estática al considerar flujo compresible o incompresible, en este ejemplo suponemos que la aeronave se encuentra al nivel del mar. \textit{Fuente: Creación propia usando MATLAB}}
+    \label{fig:graficatas}
+\end{figure}
+
+Con los valores de la presión de remanso y temperatura de remanso, podemos definir la densidad del aire en el punto de remanso para un gas ideal calorificamente perfecto como:
+
+\begin{definicion}[Relación entre la densidad de remanso y la densidad estática en función del número de Mach]
+	\begin{equation}
+		\left[\frac{\rho_R}{\rho_e} = \left[ 1 + \frac{\gamma - 1}{2} \cdot M^2 \right]^{\frac{1}{\gamma - 1}}\right]
+	\end{equation}
+\end{definicion}
+
+\subsubsection{Corrección de la temperatura exterior del aire}
+Para corregir los errores que provoca el aumento de temperatura en el punto de remanso introducimos la temperatura exterior del aire ``OAT'' (Outside Air Temperature), que se calcula a partir del número de Mach y de la temperatura de remanso (\( T_R \)).
+\begin{equation}
+OAT = \frac{T_R}{1 + (0.2 \cdot M^2)}
+\end{equation}
+
+\subsubsection{Corrección de la densidad del aire}
+
+Para determinar cómo varía la densidad del aire en comparación con las condiciones que propone la ISA, y así corregir las mediciones aerodinámicas, es necesario introducir el coeficiente de densidad del aire ``ADR'' (Air Density Ratio) que se obtiene a partir de la presión estática (\( P_s \)), la presión estática estándar obtenida de la ISA (\( P_{ISA} \)), la temperatura exterior del aire (\( OAT \)) y la temperatura exterior del aire estándar obtenida por la ISA (\( OAT_{ISA} \)).
+\begin{equation}
+ADR = \frac{P_e}{P_{ISA}} \cdot \frac{OAT_{ISA}}{OAT}
+\end{equation}
+
+Este dato es fundamental para convertir la velocidad calibrada a la velocidad verdadera.
+
+\subsubsection{Velocidad verdadera del aire}
+
+Para obtener la velocidad verdadera del aire ``TAS'' (True Air Speed), decimos:
+\begin{equation}
+TAS = M \cdot \sqrt{\gamma \cdot R \cdot OAT} \rightarrow TAS = M \cdot \sqrt{\gamma \cdot R \cdot \frac{OAT_{ISA} \cdot P_e }{P_{ISA} \cdot ADR}}
+\label{eq:tas}
+\end{equation}

@@ -1,0 +1,150 @@
+
+
+\chapter{Fundamentos de antenas}
+\setchapterimage{orange5.jpg} % Chapter heading image
+\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+Según el Instituto de Ingenieros Eléctricos y Electrónicos (IEEE), una antena se define como "aquella parte de un sistema transmisor o receptor diseñada específicamente para radiar o recibir ondas electromagnéticas". Esto significa que se trata de un dispositivo encargado de la transición de las señales entre un medio guiado (por ejemplo, un cable) y el espacio libre (es decir, el aire), donde las ondas pueden propagarse libremente.\\
+
+En las aeronaves se puede encontrar una gran variedad de antenas, cada una diseñada para cumplir un propósito específico. En los siguientes capítulos se abordarán en detalle aquellas antenas empleadas en los sistemas de navegación aérea.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{navigationaatenas.jpg}
+    \caption{\centering Antenas de sistemas de navegación. \textit{Fuente: \href{https://m.vk.com}{m.vk}}}
+    \label{fig:bcpfsk1}
+\end{figure}
+
+\section{Conceptos básicos}
+
+La radiación de ondas electromagnéticas es la base del funcionamiento de una antena. Este fenómeno ocurre cuando una corriente eléctrica oscilante atraviesa un conductor, lo cual permite la emisión o recepción de señales en distintas frecuencias. Por lo general, la longitud de ese conductor está directamente relacionada con la longitud de onda de la señal generada. Dicha relación influye en propiedades fundamentales de la antena, como su eficiencia (porcentaje de la energía efectivamente radiada) y su patrón de radiación (distribución de la energía radiada en el espacio).\\
+
+
+ 
+ 
+\section{Clasificación de las Antenas}
+
+Las antenas pueden clasificarse de diversas maneras en función de sus características y aplicaciones. Una de las clasificaciones más comunes se basa en la geometría o forma de la antena:
+
+\subsection{Por Geometría}
+\begin{itemize}
+    \item \textbf{Antenas de hilo}: Este grupo incluye los monopolos (un solo elemento conductor vertical), dipolos (formados por dos elementos lineales), espiras (antenas en forma de bucle) y helicoidales (estructuras en forma de hélice). Son antenas de construcción relativamente simple que se utilizan en una amplia gama de aplicaciones, gracias a la facilidad de su diseño y fabricación.\\
+    
+    \item \textbf{Antenas de apertura}: Comprenden las antenas de bocina, las de ranura y las de microstrip (o de parche). Las antenas de bocina son estructuras con forma de trompeta que guían las ondas hacia el espacio libre, las antenas de ranura irradian a través de aperturas en superficies metálicas, y las antenas de microstrip son placas conductoras planas montadas sobre un material dieléctrico (aislante). Se caracterizan por su capacidad de dirigir la radiación en un patrón específico, lo que las hace muy útiles en sistemas de alta frecuencia (por ejemplo, en radares o comunicaciones por satélite).\\
+    
+    \item \textbf{Reflectores}: En estas antenas se emplean superficies reflectoras, típicamente parabólicas, para concentrar y dirigir la radiación electromagnética. En el foco de la parábola se coloca un elemento alimentador que emite o recibe la señal, y de este modo la mayor parte de la energía se concentra en esa zona. Un ejemplo común es la antena parabólica utilizada en la televisión satelital, donde la superficie reflectora concentra las ondas en el receptor ubicado en su foco.\\
+    
+    \item \textbf{Lentes}: Utilizan elementos con forma de lente fabricados con materiales dieléctricos (aislantes) para refractar y controlar la trayectoria de la señal. De este modo se optimiza el enfoque y la dirección de la radiación electromagnética, de forma análoga a como una lente óptica concentra la luz.\\
+    
+    \item \textbf{Agrupaciones} (\textit{Arrays}): Consisten en conjuntos de antenas individuales dispuestas estratégicamente, cuyas señales se combinan para conformar un diagrama de radiación determinado. Esto permite lograr una mayor directividad (capacidad de enfocar la energía en direcciones deseadas) y mejorar el rendimiento global del sistema. Muchos sistemas modernos de radar y comunicaciones emplean arreglos de este tipo para orientar el haz de forma electrónica, sin necesidad de mover físicamente la antena.\\
+\end{itemize}
+
+Perfecto. Voy a ampliar y mejorar el contenido de cada sección que me diste para que sea más claro y divulgativo, manteniendo el formato compatible con LaTeX. Me enfocaré en explicar los conceptos de forma accesible sin perder precisión técnica. En cuanto lo tenga listo, te aviso.
+
+\section{Parámetros de una Antena}
+
+Las antenas se describen mediante varios \textbf{parámetros} que permiten entender cómo transmiten o reciben la energía en forma de ondas electromagnéticas. Estos parámetros nos indican, por ejemplo, cuánta potencia radia la antena en distintas direcciones, cómo se orienta el campo electromagnético que emite, o qué forma tiene su patrón de radiación. A continuación se explican con detalle y en lenguaje sencillo los principales parámetros de una antena.
+
+\subsection{Densidad de Potencia Radiada}
+
+La \textbf{densidad de potencia radiada} es la cantidad de potencia que atraviesa una unidad de superficie en una dirección específica. Se mide en vatios por metro cuadrado (W/m\(^2\)). En términos simples, imagina que colocamos una pequeña superficie plana a cierta distancia de la antena: la densidad de potencia es cuánta energía de la señal de la antena llega a esa superficie por cada metro cuadrado. Este valor depende de la distancia y de la dirección respecto a la antena. Por ejemplo, una antena que radia uniformemente en todas direcciones (una antena \textit{isotrópica} teórica) dispersa su potencia de forma que, a una distancia $r$, la densidad de potencia sería la potencia total dividida entre el área de una esfera de radio $r$ (esa área es $4\pi r^2$). Por eso, cuanto más lejos estemos de la antena, menor será la densidad de potencia (la señal se “diluye” al repartirse sobre áreas cada vez mayores). Este parámetro es útil para saber cuán intensa es la señal en un punto del espacio a cierta distancia y dirección de la antena.
+
+\subsection{Intensidad de Radiación}
+
+La \textbf{intensidad de radiación} mide la potencia radiada por la antena por unidad de ángulo sólido en una dirección dada. Se suele expresar en vatios por estereorradián (W/sr), donde el \textit{estereorradián} es la unidad que mide ángulos sólidos (por ejemplo, todo el espacio alrededor de la antena corresponde a $4\pi$ estereorradianes). En otras palabras, mientras la densidad de potencia considera un área (m\(^2\)) a cierta distancia, la intensidad de radiación considera \textit{ángulos} desde la antena. Un hecho importante es que, en el campo lejano (a grandes distancias comparadas con el tamaño de la antena y la longitud de onda), la intensidad de radiación \textbf{no depende de la distancia}. Esto se debe a que, si nos alejamos más, el área sobre la que se reparte la potencia crece (como el cuadrado de la distancia), pero el cálculo de la intensidad de radiación también incorpora ese factor de área, cancelando la dependencia con la distancia. Por tanto, la intensidad de radiación es útil para caracterizar cómo distribuye la antena su potencia en diferentes direcciones de manera intrínseca, independientemente de dónde nos encontremos. Si multiplicamos la intensidad de radiación por $4\pi$, obtenemos la potencia total radiada por la antena. Este concepto suele emplearse para definir otros parámetros, como la directividad.
+
+\subsection{Directividad y Ganancia}
+
+Estos dos parámetros indican cuán eficazmente una antena concentra la energía en una cierta dirección, pero hay una diferencia sutil entre ellos:\\
+
+\begin{itemize}
+    \item \textbf{Directividad}: La directividad de una antena es la relación entre la densidad de potencia radiada (o equivalente, la intensidad de radiación) en una dirección determinada y la que tendría una antena \textit{isotrópica} (idealmente omnidireccional) si radiara con la misma potencia total. En términos sencillos, la directividad nos dice cuánto más “concentrada” o enfocada está la radiación de nuestra antena en esa dirección, comparada con una antena que reparte la energía equitativamente en todas las direcciones. Una antena con alta directividad enviará la mayor parte de su potencia hacia una dirección preferente (como un reflector parabólico enfocando una señal), mientras que en otras direcciones radiará mucho menos. La directividad es un parámetro \textit{ideal} que asume que no hay pérdidas internas: solo describe la forma del diagrama de radiación. No tiene unidades (es un cociente), aunque a menudo se expresa en decibelios relativos a isotrópica (dBi). Por ejemplo, si una antena tiene una directividad de 10 (equivalente a aproximadamente 10 dBi), significa que en su dirección de máxima radiación concentra diez veces más potencia que la antena isotrópica con la misma potencia total.\\
+    
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{antena1.jpg}
+    \caption{\centering Representación de la directividad .\textit{ Fuente: Apuntes Navegación Aérea}}
+\end{figure}
+    
+    \item \textbf{Ganancia}: La ganancia de una antena es similar a la directividad pero considerando también la eficiencia de la antena. Es decir, la ganancia incluye las pérdidas de energía que ocurren dentro de la antena (por efectos resistivos, calentamiento, pérdidas por materiales, etc.). Una antena real nunca es 100\% eficiente; parte de la potencia de entrada se puede perder en forma de calor u otras pérdidas, y el resto se radia. La ganancia toma la directividad y la multiplica por la eficiencia de radiación de la antena. Por tanto, si una antena fuera perfectamente eficiente, su ganancia sería igual a su directividad. En la práctica, la ganancia es un número menor que la directividad (o en el mejor caso, igual si la eficiencia es del 100\%). Al igual que la directividad, suele expresarse en dBi. Por ejemplo, si la antena del ejemplo anterior con directividad 10 tiene una eficiencia del 80\%, su ganancia sería 8 (lo que en dBi es aproximadamente 9 dBi). En resumen, la ganancia representa la potencia realmente radiada en una dirección específica en comparación con una antena isotrópica, teniendo en cuenta cuánta de la potencia entregada a la antena llega efectivamente a radiarse.\\
+\end{itemize} 
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{antena2.jpg}
+    \caption{\centering Representación de la ganancia .\textit{ Fuente: Apuntes Navegación Aérea}}
+\end{figure}
+
+En la práctica, tanto directividad como ganancia indican cuán “fuerte” será la señal enviada o recibida en la dirección de interés. Cuando los fabricantes publican la \emph{ganancia} de una antena, normalmente lo hacen en dBi e involucra ya la eficiencia. Una antena con alta ganancia es buena para enfocarse en una dirección (como una antena parabólica apuntando a un satélite), mientras que una antena con baja ganancia suele irradiar en muchas direcciones (como una antena omnidireccional) pero sin concentrar la señal.
+
+\subsection{Polarización}
+
+La \textbf{polarización} de una antena describe la orientación del campo eléctrico de la onda electromagnética que radia (o que recibe) la antena. En otras palabras, si pudiéramos observar la punta del vector campo eléctrico de la onda que sale de la antena en un punto fijo del espacio, la polarización es la forma geométrica que traza esa punta del vector a medida que la onda oscila y se propaga. Dependiendo de cómo sea esa trayectoria, hablamos de distintos tipos de polarización. Los tipos principales de polarización son:\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{antena3.jpg}
+    \caption{\centering Polarización .\textit{ Fuente: Apuntes Navegación Aérea}}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Lineal}: En una polarización lineal, el campo eléctrico oscila siempre en un mismo plano u orientación. Eso significa que la dirección del campo eléctrico es fija (aunque su magnitud varía sinusoidalmente). Puede ser, por ejemplo, horizontal o vertical (o en cualquier ángulo fijo). Decir “polarización horizontal” implica que el campo eléctrico de la onda transmitida oscila hacia la izquierda y derecha (en un plano horizontal respecto al suelo), mientras que “polarización vertical” implica que el campo eléctrico oscila hacia arriba y abajo (en un plano vertical). Si tenemos dos antenas comunicándose, para una transferencia óptima de energía, ambas deben compartir la misma polarización lineal; de lo contrario, si una está horizontal y la otra vertical, la señal se acoplará muy mal (idealmente cero si estuvieran perfectamente ortogonales).\\
+    
+    \item \textbf{Circular}: En una polarización circular, la orientación del campo eléctrico va rotando mientras la onda avanza, describiendo un círculo. Esto ocurre cuando la onda se compone de dos componentes lineales perpendiculares (por ejemplo, horizontal y vertical) de igual magnitud pero desfasadas $90^\circ$ en fase. El resultado es que la punta del vector eléctrico gira uniformemente, trazando un círculo con cada ciclo de la señal. La polarización circular puede ser de dos tipos: \textit{circular derecha} o \textit{circular izquierda}, según el sentido de rotación del campo eléctrico visto desde el receptor (o mirando en la dirección de propagación). En términos más intuitivos, es como si la onda electromagnética “girara” como un sacacorchos hacia la derecha o hacia la izquierda al propagarse. Las polarizaciones circulares se usan mucho, por ejemplo, en comunicaciones vía satélite, porque si la antena del receptor está orientada de forma diferente a la del transmisor, una polarización circular asegura que igualmente recibirá la señal (a diferencia de la lineal, que necesita alineación precisa).\\
+    
+    \item \textbf{Elíptica}: Es el caso más general de polarización y puede considerarse un punto intermedio entre la lineal y la circular. Si el campo eléctrico traza una elipse al propagarse, decimos que la polarización es elíptica. En realidad, tanto la polarización lineal como la circular son casos particulares de polarización elíptica: la lineal es una elipse degenerada (aplastada en una línea recta) y la circular es una elipse especial con ejes iguales (un círculo). La polarización elíptica ocurre cuando las componentes ortogonales del campo eléctrico tienen distinta magnitud o no están exactamente desfasadas 90° (cualquier combinación no perfecta dará una elipse). Muchas antenas en la práctica emiten con polarización elíptica ligeramente, debido a imperfecciones o diseños que no logran una polarización puramente lineal o puramente circular. Al describir una polarización elíptica, a veces también se indica el \textit{sentido de rotación} (derecha o izquierda, igual que en la circular) y el \textit{eje mayor y menor de la elipse} para caracterizarla completamente. En general, para maximizar la transferencia de señal, tanto emisor como receptor deben tener la misma polarización; cuando se usan polarizaciones elípticas, esto implica igual forma de la elipse y mismo sentido de giro.\\
+\end{itemize}
+
+En la práctica, entender la polarización es importante porque una antena diseñada para una cierta polarización captará bien las ondas de esa misma polarización, pero rechazará (en parte o totalmente) las de polarización diferente. Esto puede ser útil para reducir interferencias (usando polarizaciones ortogonales para diferentes señales) o para asegurar que la orientación de la antena receptora no afecte demasiado (usando polarización circular, por ejemplo).
+
+\subsection{Diagrama de Radiación}
+
+El \textbf{diagrama de radiación} de una antena es una representación gráfica de cómo radia o recibe energía la antena en el espacio. Suele ser una gráfica (a menudo en coordenadas polares) que muestra la intensidad de la radiación en función del ángulo alrededor de la antena. En otras palabras, si imaginamos estar parados a igual distancia de la antena pero moviéndonos en círculo alrededor de ella (o cambiando el ángulo de observación), el diagrama de radiación nos indica qué tan fuerte sería la señal en cada dirección.\\
+
+Algunas características importantes del diagrama de radiación son:\\
+
+\begin{itemize}
+    \item \textbf{Lóbulo principal}: Es la región o lóbulo del diagrama donde la radiación de la antena es máxima. Normalmente corresponde a la dirección en la que la antena está “apuntando” o para la cual fue optimizada. Por ejemplo, en una antena direccional como una parabólica, el lóbulo principal sería un lóbulo estrecho apuntando hacia el frente de la parábola. En una antena omnidireccional ideal, el “lóbulo principal” sería básicamente todo el plano horizontal de 360°, ya que irradia igualmente en todas las direcciones horizontales.\\
+    
+    \item \textbf{Lóbulos secundarios y laterales}: Son otros lóbulos del diagrama de radiación que no son el principal. Cualquier pico de radiación en una dirección que no sea la del lóbulo principal se considera un lóbulo secundario (o lateral si está relativamente cerca del principal en ángulo). Por ejemplo, muchas antenas direccionales tienen pequeños lóbulos hacia los lados o incluso hacia atrás (llamado lóbulo trasero). Estos lóbulos secundarios representan radiación no deseada en otras direcciones, ya que idealmente querríamos toda la energía concentrada solo en el lóbulo principal. En diseño de antenas, a menudo se busca que los lóbulos secundarios sean lo más débiles posible en comparación con el principal, para evitar interferir en direcciones no útiles y para aumentar la eficiencia de radiación en la dirección deseada.\\
+    
+    \item \textbf{Ancho de haz a mitad de potencia} (\(\Delta\theta_{-3\text{dB}}\)): También conocido como ancho de haz de 3 dB o half-power beamwidth en inglés, es el ángulo comprendido (dentro del lóbulo principal) entre los dos puntos a ambos lados de la máxima radiación donde la potencia cae a la mitad de su valor máximo. “Caer a la mitad” en términos de potencia corresponde a una disminución de 3 decibelios, de ahí el $-3$ dB en la notación. Por ejemplo, si una antena tiene su máxima radiación en 0° (directamente al frente) y los puntos a \(\pm 15°\) respecto al frente son donde la potencia radiada cae a la mitad, entonces el ancho de haz a -3 dB es de $30°$. Este ancho de haz describe qué tan “abierto” o “cerrado” es el lóbulo principal. Un lóbulo principal estrecho (ancho de haz pequeño) significa que la antena es muy directiva (concentra la energía en un haz angosto), mientras que un lóbulo ancho indica que la antena cubre un área angular mayor con su radiación. Este parámetro es importante para aplicaciones: por ejemplo, una antena de ancho de haz pequeño es útil para enlaces punto a punto (porque concentra la señal hacia el receptor específico), mientras que una antena con ancho de haz grande puede cubrir más área (útil para radiodifusión o cobertura amplia, aunque a menor ganancia).\\
+\end{itemize}
+
+En resumen, el diagrama de radiación nos da una “imagen” de cómo la antena distribuye su energía en el espacio. Visualmente, suele representarse en 2D como una figura en forma de lóbulo(s) alrededor de un punto central (la antena). También existen diagramas de radiación tridimensionales que muestran una especie de “globo” alrededor de la antena indicando la intensidad en cada dirección. Interpretar este diagrama permite comprender hacia dónde la antena radia fuertemente, dónde casi no radia, y cómo de focalizada es la señal.
+
+\section{Tipos de Antenas}
+
+Existen muchos tipos de antenas, cada uno con diseños físicos diferentes y propiedades de radiación particulares. La elección del tipo de antena depende de la aplicación: algunas antenas están pensadas para radiar en todas direcciones, otras para concentrar la señal como un haz estrecho, otras para manipular la forma del patrón de radiación, etc. A continuación se describen algunos tipos básicos de antenas, que sirven como base para entender configuraciones más complejas.
+
+\subsection{Dipolos}
+
+El \textbf{dipolo} es uno de los tipos de antena más fundamentales y conocidos. Consiste, en su forma más típica, en dos brazos conductores (por ejemplo, dos varillas metálicas) alineados colinealmente, alimentados por un punto central. Un caso común es el \textit{dipolo de media onda}, donde la longitud total de los dos elementos es aproximadamente la mitad de la longitud de onda de operación. Los dipolos son antenas resonantes sencillas y muy eficientes.\\
+
+Una característica importante de los dipolos es que son intrínsecamente \textbf{omnidireccionales} en el plano perpendicular a su eje. Por ejemplo, imaginemos un dipolo colocado verticalmente (sus brazos uno hacia arriba y otro hacia abajo desde el punto de alimentación). Este dipolo radía muy bien en todas las direcciones horizontales alrededor (360° en el plano horizontal), pero casi no radía energía ni directamente hacia arriba ni hacia abajo a lo largo de la extensión de los brazos. En términos de diagrama de radiación tridimensional, un dipolo ideal produce un patrón similar a la forma de un “dónut” o rosquilla, con la antena atravesando el agujero del dónut. Esto significa que si dibujamos el diagrama de radiación en el plano horizontal (plano $H$, perpendicular al dipolo vertical), obtenemos un círculo perfecto (misma intensidad en todos los ángulos horizontales). Si dibujamos el diagrama en el plano vertical que contiene al dipolo (plano $E$), obtenemos una figura de doble lóbulo con forma de “8” acostado: hay dos lóbulos principales opuestos (hacia los lados perpendiculares al dipolo) y una mínima radiación en dirección del eje del dipolo.\\
+
+Debido a esta propiedad omnidireccional en el plano horizontal, los dipolos (especialmente los verticales) se usan mucho como antenas base en comunicaciones donde se requiere cubrir uniformemente el entorno en torno a la antena (por ejemplo, antenas de radio FM, transmisores de televisión en ciertas bandas, o puntos de acceso WiFi simples). Además, el dipolo es la base teórica de muchas otras antenas: cualquier antena omnidireccional práctica suele basarse en el dipolo o en principios similares. Incluso antenas más complejas (como las Yagi-Uda o arrays) incorporan dipolos o elementos similares a dipolos en su estructura.
+
+\subsection{Monopolos}
+
+
+El \textbf{monopolo} es muy parecido a un medio dipolo vertical, solo que utiliza un plano reflectante (típicamente el suelo o una superficie metálica grande) para simular la mitad que falta. En lugar de tener dos brazos como el dipolo completo, el monopolo tiene un solo brazo conductor vertical, y debajo de él se extiende un plano metálico (o la tierra) que actúa como referencia. Por ejemplo, una antena de cuarto de onda vertical sobre un plano de tierra es un monopolo clásico: la varilla vertical mide aproximadamente un cuarto de la longitud de onda, y el suelo hace las veces de espejo eléctrico creando la imagen de la otra cuarta parte, completando efectivamente el dipolo.\\
+
+El efecto de imagen debido al plano del suelo significa que la corriente reflejada en el plano actúa como si hubiera un segundo brazo idéntico del otro lado. Así, el patrón de radiación de un monopolo vertical ideal sobre un plano de tierra infinito es prácticamente la mitad superior del “dónut” del dipolo (porque la otra mitad iría hacia abajo, pero allí en lugar de aire está el plano conductor). En consecuencia, la energía se concentra por encima del plano, y no se radia (idealmente) hacia abajo atravesando el plano. Esto puede hacer que, comparado con un dipolo en espacio libre, un monopolo radie con aproximadamente el doble de intensidad en las direcciones por encima del plano (ya que toda la potencia se concentra en el semiespacio superior). De hecho, un monopolo de cuarto de onda sobre tierra tiene una ganancia de unos 5~dBi, mientras que un dipolo de media onda tiene ~2.15~dBi, precisamente por esa concentración en la mitad del espacio.\\
+
+En la práctica, los monopolos son muy utilizados porque resultan más fáciles de montar: por ejemplo, la típica “antena de látigo” de un coche es un monopolo vertical usando la carrocería del coche como plano de tierra. Son omnidireccionales en el plano paralelo al suelo (como el dipolo vertical), lo que los hace ideales para radiocomunicaciones donde se quiera cobertura horizontal en todas direcciones alrededor de la antena. Sin embargo, requieren una buena conexión a tierra o plano metálico para funcionar correctamente, y la altura del monopolo suele ser optimizada para la frecuencia (un cuarto de onda es una elección común). En frecuencias bajas, donde un cuarto de onda puede ser muy grande, se emplean técnicas como radiales (alambres inclinados que actúan como plano de tierra virtual) o bobinas de carga para acortar eléctricamente el monopolo.\\
+
+\subsection{\textit{Arrays} de Antenas}
+
+Un \textbf{\textit{array} de antenas} es una agrupación de múltiples antenas (elementos radiantes) dispuestas en una configuración específica y alimentadas con corrientes o señales ajustadas en amplitud y fase. El propósito de un array es aprovechar la interferencia constructiva y destructiva de las ondas emitidas por cada elemento para controlar el patrón de radiación global resultante. Dicho de manera sencilla, al combinar muchas antenas pequeñas, podemos hacer que sus señales se sumen en ciertas direcciones (potenciando la radiación allí) y se anulen en otras (reduciendo la radiación no deseada), logrando así características que una sola antena no podría.\\
+
+Los \textit{arrays} permiten principalmente dos cosas muy poderosas en el diseño de sistemas radiantes:\\
+
+\begin{itemize}
+    \item \textbf{Aumentar la directividad}: Al tener varios elementos trabajando juntos, es posible crear un lóbulo principal más estrecho y dirigido que con un único elemento. Básicamente, un array bien diseñado puede comportarse como una antena mucho más grande, concentrando la energía en una dirección preferente y obteniendo ganancias muy altas. Un ejemplo clásico es el de los \textit{arrays} en fase (phased arrays) o las antenas en grupo de tipo Yagi-Uda: combinan múltiples dipolos (u otros elementos) dispuestos en línea o en un plano, de forma que la radiación colectiva se enfoca. Cuantos más elementos se sumen y apropiadamente espaciados, más estrecho (y de mayor ganancia) tiende a ser el haz principal. Esto es análogo a tener una antena efectiva de mayor tamaño (apertura mayor), lo que según la física de radiación nos da mayor directividad.\\
+    
+    \item \textbf{Ajustar la forma del diagrama de radiación mediante síntesis}: Además de simplemente estrechar el haz, los arrays permiten modelar el patrón. Variando las amplitudes y fases relativas con las que alimentamos cada elemento, podemos “esculpir” el diagrama de radiación. A esto se le llama síntesis de patrones. Por ejemplo, podemos diseñar un array para que tenga mínimos (nulos) de radiación en ciertas direcciones donde queremos evitar interferencia, o para que tenga varios lóbulos principales hacia distintos sectores. También es posible inclinar o direccionar electrónicamente el haz principal sin mover físicamente la antena, cambiando la fase de alimentación de los elementos (lo que se conoce como \textit{beamforming} o conformación de haz). Esto es extremadamente útil en radar y en comunicaciones móviles modernas (estaciones base 4G/5G) donde antenas inteligentes ajustan su patrón para seguir a los usuarios o para cubrir ciertas áreas dinámicamente.\\
+\end{itemize}
+
+En resumen, un \textit{array} de antenas se comporta como una antena “virtual” cuyo patrón de radiación es resultado de la combinación de muchos elementos. Según cómo se dispongan (en línea, en un plano, circularmente, etc.) y cómo se exciten, podemos lograr patrones muy diversos. La ventaja es la flexibilidad y la alta directividad alcanzable. La desventaja puede ser la complejidad, ya que requiere circuitos de alimentación precisos y a veces muchos elementos. Aun así, los \textit{arrays} son fundamentales en multitud de aplicaciones modernas, desde los grandes radiotelescopios compuestos de múltiples antenas pequeñas sincronizadas, hasta las antenas compactas de los routers WiFi con tecnología MIMO, pasando por las antenas militares de radar con barrido electrónico. Cada vez que se necesite un control fino sobre el haz de una antena o una ganancia elevada sin tener una única antena físicamente enorme, la respuesta suele ser un array de antenas.
+

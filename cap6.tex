@@ -1,0 +1,331 @@
+\chapter{Sistemas de comunicación}
+\setchapterimage{orange11.jpg} % Chapter heading image
+\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+Los sistemas de comunicación juegan un papel fundamental en la transmisión de información, en todos ellos, la información principal se procesa mediante un transmisor o modulador con el fin de modificarlo a una forma accesible para la transmisión dentro de un canal de comunicación. Luego, en el receptor, la señal es procesada para recuperar esa información principal.\\
+
+Es clave enteneder que los canales de comunicación tienen un intervalo de frecuencia óptimo, y si nos alejamos de él la información se degrada. Un ejemplo típico es la atmósfera, ya que está atenua las señales con frecuencia audible (10 Hz a 20 kHz), es por ellos que el trabajo del transmisor es es insertar la señal principal dentro de otra con una frecuencia mayor, a este proceso se le conoce como modulación; y al proceso de extraer la señal con la información importancia se le conoce como demodulación. El rango de frecuencias de la señal que se quiere transmitir se denominda banda base.\\
+
+La señal portadora suele ser una señal sinusoidal de amplitud \(E_{c}\), frecuencia \(f_{c}\) y de fase \(\phi\).\\
+
+\begin{definicion}[Señal portadora]
+\begin{equation}
+e_{c} = E_{c} sen(2\pi f_{c} t + \phi) = E_{c} sen(w_{c}t + \phi)
+\end{equation}
+\end{definicion}
+
+La información principal se puede poner por encima de la señal portadora variando la amplitud, la frecuencia o la fase.\\
+
+\section{Transmisión de onda continua en morse}
+El sistema de comunicación por radio más básico que se puede usar para enviar mensajes en código Morse incluye:\\
+
+\begin{itemize}
+\item Transmisor: Genera una onda portadora sinuodial de 100 KHz usando un oscilador, y un amplificador de RF controla la señal mediante una llave de Morse que enciende o apaga la portadora para crear puntos y rayas.
+\item Receptor: Incluye un sintonizador a 100 KHz y un amplificador que potencia la señal recibida. La señal amplificada se mezcla para producir una frecuencia audible.\\
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ejemplo morse.jpeg}
+    \caption{\centering Transmisor y receptor en código morse. \textit{Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:placeholder}
+\end{figure}
+
+La información que se envía es simplementa la presencia o ausencia de señal portadora. Para enviar información más comleja hay que recurrir a esquemas más sofisticados de modulación.\\
+
+\section{Modulación en amplitud de cuadratura (QAM)}
+La modulación en amplitud de cuadratura (\textbf{QAM}) es un método general de modulación que permite modular sobre la misma portadora dos señales independientes con características de ancho de banda similares, teniendo que ocupar el mismo ancho de banda para la transmisión, haciéndolo muy adecuado para la transmisión digital.\\
+
+\begin{definicion}[Modulación en amplitud de cuadratura]
+Sean \( I(t) \) y \( Q(t) \) las señales que se desean transmitir. La señal a enviar, \( s(t) \), tiene la forma:
+\begin{equation}
+s(t) = I(t) \cos(2\pi f_c t) + Q(t) \sin(2\pi f_c t)
+\end{equation}
+\end{definicion}
+
+donde \( f_c \) es la frecuencia de la portadora.
+
+\subsection{Demodulación}
+En recepción, la señal \( I(t) \) se recupera a partir de la señal recibida \( r(t) \) multiplicándola por la salida de un oscilador local de frecuencia igual a la portadora:
+\[
+r(t) = I(t) \cos(2\pi f_c t) + Q(t) \sin(2\pi f_c t)
+\]
+\[
+I_r(t) = r(t) \cos(2\pi f_c t)
+\]
+
+Expandiendo y operando:
+\[
+I_r(t) = I(t) \cos^2(2\pi f_c t) + Q(t) \sin(2\pi f_c t) \cos(2\pi f_c t)
+\]
+
+Utilizando las identidades trigonométricas:
+\[
+I_r(t) = \frac{1}{2} I(t) + \frac{1}{2} I(t) \cos(4\pi f_c t) - \frac{1}{2} Q(t) \sin(4\pi f_c t)
+\]
+
+Aplicando un filtro paso bajo, se eliminan los armónicos más altos y se obtiene:
+\[
+I_r(t) = \frac{1}{2} I(t)
+\]
+
+De manera similar, la señal \( Q(t) \) se recupera multiplicando la señal recibida \( r(t) \) por la salida de un oscilador local desfasado \(90^\circ\) respecto a la portadora:
+\[
+Q_r(t) = r(t) \sin(2\pi f_c t)
+\]
+
+Sustituyendo y operando:
+\[
+Q_r(t) = I(t) \cos(2\pi f_c t) \sin(2\pi f_c t) + Q(t) \sin^2(2\pi f_c t)
+\]
+\[
+Q_r(t) = \frac{1}{2} Q(t) - \frac{1}{2} I(t) \sin(4\pi f_c t) + \frac{1}{2} Q(t) \cos(4\pi f_c t)
+\]
+
+Aplicando un filtro paso bajo, se eliminan los términos armónicos, resultando en:
+\[
+Q_r(t) = \frac{1}{2} Q(t)
+\]
+
+En este proceso, tanto \( I(t) \) como \( Q(t) \) son recuperadas correctamente, salvo un factor de escala que puede ser ajustado si \( K \neq 1 \). Además este método permite la transmisión eficiente de datos digitales utilizando las dos componentes de la portadora.
+
+\section{Modulación en amplitud}
+La modulación se lleva a cabo al modificar la amplitud de la portadora según la señal de banda base. Este tipo de modulación se utiliza de manera extensa en las comunicaciones de voz en frecuencias de HF, UHF y VHF. Sin embargo, en las comunicaciones VHF que no son vocales, se prefiere la modulación en frecuencia (FM) debido a su menor sensibilidad al ruido, lo que la hace más eficiente en esos casos.\\
+
+La modulación en amplitud (AM) tiene ciertas ventajas para la comunicación vocal. En primer lugar, necesita menos potencia para transmitir la misma información en comparación con otras técnicas de modulación. Además, su demodulador puede reconstruir la señal incluso cuando varias estaciones están transmitiendo en la misma frecuencia, lo que facilita la recepción en entornos con interferencias.\\
+
+Matemáticamente, si \( m(t) \) es la señal que se va a modular sobre una portadora de frecuencia \( \omega_c \), la señal portadora se puede expresar como: \(e_c = E_c sen(\omega_c t)\) y la señal modulada en amplitud como:
+
+\begin{definicion}[Señal modulada en amplitud]
+\begin{equation}
+e_{am} = (E_c + m(t)) sen(\omega_c t)
+\end{equation}
+\end{definicion}
+
+
+
+Si la amplitud de la portadora se normaliza a 1, la ecuación resultante es:
+\[
+e_{am} = (1 + m(t)) sen(\omega_c t)
+\]
+
+Esta forma de modulación sigue siendo utilizada en diversas aplicaciones debido a su simplicidad y eficiencia en ciertas condiciones de transmisión.\\
+
+Supongamos que queremos transmitir  
+    \[
+    m(t) = M cos(\omega_m t + \phi)
+    \]
+    
+Una señal de una sola frecuencia pura \(\omega_m\) desfasada un ángulo \(\phi\) respecto de la portadora.\\
+
+La señal modulada (la que enviamos) tendrá la forma:
+    \[
+    e_{am} = [1 + M cos(\omega_m t + \phi)] sen(\omega_c t)
+    \]
+
+Utilizando:
+    \[
+    cos(a) sen(b) = \frac{sen(a + b) - sen(a - b)}{2}
+    \]
+
+Obtenemos
+    \[
+    e_{am} = sen(\omega_c t) + \frac{M}{2} [sen(\omega_c t + \omega_m t + \phi) - sen(\omega_c t - \omega_m t - \phi)]
+    \]
+
+La señal modulada que obtenemos está formada por la propia portadora y dos señales moduladas en amplitud:
+    \begin{itemize}
+        \item \(sen(\omega_c t)\): La propia portadora.
+        \item \(sen(\omega_c t + \omega_m t + \phi)\): Señal AM a frecuencia \(\omega_m\) por encima de la portadora.
+        \item \(sen(\omega_c t - \omega_m t - \phi)\): Señal AM a frecuencia \(\omega_m\) por debajo de la portadora.\\
+    \end{itemize}
+
+Como la señal moduladora está formada por un conjunto de frecuencias, las señales a ambos lados de la portadora se convierten en bandas.  Esto ocurre porque la señal de banda base se puede describir matemáticamente mediante una serie de Fourier, que descompone la señal en muchas frecuencias. Estas frecuencias se trasladan en el dominio de la frecuencia alrededor de la portadora, formando bandas laterales en lugar de picos únicos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{bandafrecuencias.jpg}
+    \caption{\centering Espectro típico de una señal modulada en amplitud. \textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:bandafrec}
+\end{figure}
+
+
+\section{Separación de canales AM en VHF}
+
+Desde la Segunda Guerra Mundial, las comunicaciones de corto alcance (hasta aproximadamente 200 km) entre aeronaves y estaciones terrestres han empleado transmisiones en VHF debido a su bajo nivel de ruido de fondo y a la posibilidad de utilizar antenas resonantes eficientes de un cuarto de longitud de onda, que miden aproximadamente 30 cm de largo. \\
+
+La banda de frecuencias asignada a la aviación civil abarca de 108 a 136.975 MHz. Dentro de esta, el segmento de 108 a 117.95 MHz está reservado para sistemas de radionavegación, como el VOR (Radiofaro Omnidireccional VHF) y el ILS (Sistema de Aterrizaje por Instrumentos), mientras que el rango de 118 a 136.975 MHz se utiliza para transmisiones de voz en AM. \\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{vhfaviacion.jpg}
+    \caption{\centering Banda VHF de aviación para radionavegación y comunicación por voz. \textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:chfavviacion}
+\end{figure}
+
+Como veremos en siguientes capítulos, el VOR es una ayuda esencial que permite a las aeronaves determinar su posición y mantenerse en ruta. Las estaciones VOR transmiten señales en frecuencias VHF que las aeronaves pueden recibir y procesar para establecer su orientación relativa a la estación. \\
+
+La banda de radionavegación de 108 a 117.95 MHz se divide en canales con una separación de 50 kHz, lo que permite la coexistencia de múltiples estaciones sin interferencias. Esta asignación de frecuencias es gestionada por organismos internacionales, como la Organización de Aviación Civil Internacional (OACI), que establece las directrices para su uso adecuado. \\
+
+\section{Modulación en frecuencia (FM)}
+
+La modulación en frecuencia (FM) es un tipo de modulación angular, en la cual la señal modulada se obtiene al variar continuamente la fase instantánea de la portadora, manteniendo constante su amplitud.\\
+
+En este caso, la frecuencia angular instantánea de la señal modulada puede expresarse como:
+\begin{equation}
+\omega(t) = \frac{d}{dt} (\omega_c t + \theta) = \omega_c + \frac{d\theta}{dt}
+\end{equation}
+
+Donde:
+\begin{itemize}
+\item \( \omega_c \) representa la frecuencia angular constante de la portadora.
+\item \( \frac{d\theta}{dt} \) corresponde a la desviación instantánea de la frecuencia, la cual varía en función de la señal moduladora.\\
+\end{itemize}
+
+Dado que la frecuencia angular instantánea es:
+\[
+\omega(t) = \omega_c + \frac{d\theta}{dt}
+\]
+
+Se puede determinar la fase instantánea de la señal modulada integrando en el tiempo:
+\[
+\theta(t) = \int_0^t \omega(\tau) d\tau = \omega_c t + \int_0^t \frac{d\theta}{dt} d\tau
+\]
+
+Este principio es la base de la modulación en frecuencia, donde la información de la señal moduladora se traduce en variaciones en la frecuencia de la portadora, permitiendo una transmisión más robusta ante el ruido y las interferencias en comparación con la modulación en amplitud (AM).\\
+
+En la modulación de frecuencia (FM), la desviación instantánea de la frecuencia de la señal modulada es proporcional al valor instantáneo de la señal moduladora \( m(t) \). Matemáticamente, esto se expresa como:
+\begin{equation}
+\frac{d\theta}{dt} = \Delta\omega m(t)
+\end{equation}
+
+Donde \( \Delta\omega \) representa el máximo desplazamiento en frecuencia inducido por la modulación.
+
+Por lo tanto, la fase instantánea de la señal modulada se obtiene integrando:
+\[
+\theta(t) = \int_0^t \omega(\tau) d\tau = \omega_c t + \int_0^t \Delta\omega m(\tau) d\tau
+\]
+
+Esto nos lleva a la expresión general de la onda modulada en frecuencia:
+\[
+ e_{FM}(t) = E_c sen \left( \omega_c t + \Delta\omega \int_0^t m(\tau) d\tau \right)
+\]
+
+Si la señal moduladora es una onda senoidal pura:
+\[
+m(t) = E_m cos(\omega_m t)
+\]
+
+La expresión de la señal modulada se transforma en:
+\begin{equation}
+e_{FM}(t) = E_c sen \left( \omega_c t + \frac{\Delta\omega E_m}{\omega_m} sen(\omega_m t) \right)
+\end{equation}
+
+En donde el término \( \frac{\Delta\omega E_m}{\omega_m} \) es el índice de modulación de FM, definido como:
+\[
+m = \frac{\Delta\omega E_m}{\omega_m}
+\]
+
+En el dominio de la frecuencia, la señal modulada \( e_{FM}(t) \) se traduce en una serie de componentes laterales alrededor de la portadora, cuya amplitud y distribución dependen del índice de modulación \( m \). Cada una de estas componentes representa armónicos de la señal moduladora, lo que diferencia a la FM de la modulación en amplitud (AM), donde solo aparecen bandas laterales simples.\\
+
+El ancho de banda de la señal modulada en frecuencia se puede aproximar utilizando la Regla de Carson:
+\[
+BW \approx 2(\Delta f + f_{max}) = 2 f_{max} (m+1)
+\]
+
+Donde \( \Delta f \) es la desviación máxima de frecuencia (\(\Delta f = \frac{\Delta \omega}{2 \pi}\)) y \( f_{max} \) la frecuencia máxima de la señal moduladora  (\(f_{max}= \frac{\omega_{max}}{2 \pi}\)  . Este ancho de banda es mayor que el de una señal AM, lo que justifica el uso de FM en aplicaciones donde se requiere alta fidelidad, como en la radiodifusión sonora, a parte, esta regla indica que el 98\% de la potencia de la señal emitida se ecuentra dentro del ancho de banda.\\
+
+
+Las principales ventajas de la modulación en frecuencia incluyen su mayor inmunidad al ruido y su mejor calidad de audio en comparación con la AM. Sin embargo, también presenta desventajas, como elmayor ancho de banda requerido y la complejidad del receptor, ya que la demodulación de FM requiere circuitos especializados como detectores de pendiente, discriminadores de frecuencia o lazos de enganche de fase (PLL).\\
+
+Existen diferentes tipos de FM según el ancho de banda empleado:
+\begin{itemize}
+\item FM de Banda Ancha (WBFM): Utilizada en la radio comercial, con desviaciones de hasta 75 kHz y anchos de banda de alrededor de 200 kHz.
+\item FM de Banda Estrecha (NBFM): Empleada en comunicaciones aeronáuticas y marítimas, con desviaciones de pocos kHz y menor ancho de banda.\\
+\end{itemize}
+
+Otra modulación angular relacionada con FM es la modulación de fase (PM), donde la fase de la portadora varía directamente con la señal moduladora. FM y PM están estrechamente relacionadas y pueden convertirse entre sí mediante integración o diferenciación de la señal moduladora.\\
+
+\section{Modulación para transmisión digital}
+\subsection{Modulación por pulsos}
+
+En la modulación por pulsos, la información se representa mediante la presencia o ausencia de pulsos discretos en lugar de utilizar una portadora sinusoidal continua.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{porpulsos.jpg}
+    \caption{\centering Modulación por pulsos donde la amplitud de la portadora es intercambiada entre 0 y 1. \textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:porpulsos}
+\end{figure}
+
+Un ejemplo de esta técnica es la Modulación por Posición de Pulso (PPM), en la que la posición temporal de cada pulso dentro de un intervalo determinado indica el valor de los datos transmitidos. En PPM, todos los pulsos tienen la misma amplitud y duración, pero su posición dentro del periodo de transmisión varía. Por ejemplo, un pulso emitido en la primera mitad de un intervalo puede representar un ‘1’, mientras que un pulso en la segunda mitad puede representar un ‘0’. Este esquema se emplea en los transpondedores de radar secundario Modo S que estudairemos en los próximos capítulos, donde la posición de los pulsos dentro de un marco temporal define la información binaria transmitida. De esta manera, cada bit se transmite a través del desplazamiento en el tiempo del pulso correspondiente dentro de su ventana de transmisión.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{porpulsos1.jpg}
+    \caption{\centering Modulación por posición de pulsos donde la información es codificada.\textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:porpulsos1}
+\end{figure}
+
+Una técnica avanzada que combina amplitud y fase es la modulación en amplitud en cuadratura (QAM, Quadrature Amplitude Modulation). Como se vio anteriormente en un modulador QAM, la señal se divide en dos componentes: el canal en fase (I)  y el canal en cuadratura (Q), modulados de manera independiente. Esto permite representar múltiples niveles de amplitud y fase simultáneamente, aumentando la cantidad de datos transmitidos por símbolo. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{porpulsos2.jpg}
+    \caption{\centering Valores de IQ requeridos en la modulacion QAM para producir una modulación pulsada.\textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:porpulsos2}
+\end{figure}
+
+
+En una configuración específica, si el canal I conmuta entre ‘0’ y ‘1’ y el canal Q permanece en cero, el resultado es una modulación donde la portadora se activa o desactiva según el bit transmitido. Esta implementación es útil para transmitir información binaria mediante un modulador QAM sin modificar la frecuencia o la fase de la portadora.
+
+
+\subsection{Modulación por cambio de fase binaria (BPSK)}
+
+La modulación por cambio de fase binaria (BPSK) es una técnica digital que codifica información alterando la fase de una señal portadora sinusoidal. En BPSK, la portadora (una onda continua de frecuencia y amplitud constantes) puede transmitir un bit a la vez cambiando su fase entre dos valores posibles separados 180°. En la práctica, esto significa que se asigna una fase a cada bit binario: por ejemplo, la fase “0 grados” puede representar el bit ‘0’ y la fase “180 grados” (invirtiendo la fase de la onda) representa el bit ‘1’. Cada vez que los datos binarios cambian de 0 a 1 o viceversa, la fase de la portadora se invierte en 180°, creando dos estados de fase claramente distinguibles. De este modo, el receptor puede diferenciar qué bit se transmitió detectando si la portadora llega en fase o invertida.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{BPSK1.jpg}
+    \caption{\centering Modulación por cambio de fase binaria (BPSK) donde dos fases de la portadora a 180º son usados para representar 0 y 1.\textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:bpsk1}
+\end{figure}
+
+ Este esquema es conceptualmente sencillo: un modulador BPSK típico actúa como un conmutador de fase que invierte la señal de portadora según el bit de entrada, entregando la onda. La clave es que solo se utilizan dos fases (bifásica), por lo que cada símbolo transmitido solo puede tomar uno de dos valores de fase correspondientes a los dos dígitos binarios posibles. Una ventaja importante de BPSK es que mantiene la portadora continuamente transmitida, la señal nunca se interrumpe; simplemente cambia de fase para indicar datos.  El receptor puede rastrear la portadora continuamente porque su frecuencia y amplitud permanecen constantes. Esta transmisión constante proporciona una señal de referencia estable, ayudando a minimizar errores de muestreo y permitiendo que el demodulador recupere la fase de referencia con mayor facilidad.\\
+ 
+ Gracias a su simplicidad y fiabilidad, BPSK se utiliza en aplicaciones donde la integridad de la señal es crucial. Un ejemplo es su uso en transpondedores de comunicación en banda S para enlaces tierra-aire, como en transpondedores Modo S en aviación y sistemas de telemetría satelital. Su resistencia al ruido y la estabilidad de la fase la hacen ideal para entornos con interferencias. En aviación, permite transmitir datos de identificación y altitud codificando bits mediante cambios de fase. De manera similar, en satélites, BPSK se emplea en telemetría y control, garantizando una transmisión segura incluso en condiciones adversas.\\
+ 
+La integración de BPSK en esquemas QAM se entiende al reconocer que BPSK es realmente un caso particular y sencillo dentro de la modulación en cuadratura donde únicamente un canal de cuadratura transporta datos binarios mediante inversión de fase mientras que el canal I es conceptualmente un interruptor electrónico: según el bit sea 0 o 1, conmuta la salida entre dos fases de la señal coseno. Técnicamente, esto suele implementarse con un modulador balanceado o multiplicador que multiplica la portadora por +1 o –1 según el bit, obteniendo la onda en fase o en contrafase. El resultado es un sistema que genera dos estados de la portadora (dos puntos en el diagrama de constelación) para codificar información binaria, justo como lo hace la BPSK. 
+
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{BPSK2.jpg}
+    \caption{\centering Implementacion de la modulación BPSK usando QAM, Q se mantiene en 0 mientras el valor I es varía entre 1 y -1.\textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:bpsk2}
+\end{figure}
+
+Si en lugar de limitarse a un solo canal (I), utilizamos simultáneamente los dos canales (I y Q) de la modulación en cuadratura, podemos crear dos estados de la señal portadora y, por tanto, en cada instante enviamos dos bits.
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{bpsk3.jpg}
+    \caption{\centering Uso simultaneo de los dos canales de la modulación en cuadratura.\textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:bpsk3}
+\end{figure}
+
+
+\subsection{Modulación por desplazamiento continuo (BCPFSK)}
+La modulación por desplazamiento continuo (BCPFSK) es una técnica digital que evita los cambios abruptos de fase presentes en esquemas como BPSK o FSK convencional, los cuales pueden generar discontinuidades que dificultan la demodulación. En estos sistemas, los saltos de fase introducen componentes espectrales no deseadas, reduciendo la eficiencia y aumentando la susceptibilidad a interferencias. Para solucionar esto, BCPFSK garantiza una variación de fase suave entre símbolos, evitando interrupciones abruptas y mejorando la detección de señales en entornos ruidosos.\\
+
+BCPFSK funciona asignando dos frecuencias discretas alrededor de una frecuencia central, alternando entre ellas según el bit transmitido. A diferencia de FSK convencional, aquí la fase no se reinicia en cada transición, sino que se ajusta progresivamente. Cuando la señal cambia de ‘0’ a ‘1’, la frecuencia aumenta suavemente, acelerando la rotación de fase; cuando pasa de ‘1’ a ‘0’, la frecuencia disminuye, manteniendo la continuidad de la fase acumulada. Este enfoque optimiza el espectro y permite una transmisión más eficiente y resistente a errores.\\
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{BCPFSK.jpg}
+    \caption{\centering Modulación BCPFSK donde dos estados binarios son codificados por dos frecuencias diferentes con un cambio de fase continuo de una frecuencia a otra\textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:bcpfsk}
+\end{figure}
+
+En navegación aérea, la estabilidad y robustez de la señal son esenciales. Sistemas como VOR y DME emplean técnicas similares a BCPFSK para evitar interferencias y garantizar una referencia de fase clara. Por ejemplo, VOR usa una subportadora de 9960 Hz modulada en frecuencia de manera continua, asegurando transiciones de fase sin interrupciones. Además, en enlaces ADS-B UAT dentro de la banda de DME, se aplica CPFSK a 1,042 Mbit/s para mejorar la integridad de los datos. Gracias a su espectro más concentrado y su continuidad de fase, BCPFSK mejora la precisión y fiabilidad en sistemas de radionavegación aérea, asegurando una transmisión estable incluso en entornos con alto ruido e interferencias.\\

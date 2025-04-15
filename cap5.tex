@@ -1,0 +1,359 @@
+\chapter{Ondas electromagnéticas}
+\setchapterimage{orange10.jpg} % Chapter heading image
+\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+\pagestyle{fancy}
+
+Una onda es una perturbación que viaja a través del espacio y del tiempo, transportando energía, en el caso de las ondas de radio se deben a la propagación de un campo eléctrico (\(\vec{E}\)) y magnético (\(\vec{B}\)) oscilante orientado perpendicularmente entre sí, esta caracteristica se puede observar en la siguiente figura:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{campo electrico y magnetico.png}
+    \caption{Modelo de Maxwell de onda linealmente polarizada. \href{https://theory.labster.com/es/electromagnetic-waves/}{Labster theory}}
+    \label{fig:placeholdeeeeer}
+\end{figure}
+
+La dirección del campo eléctrico permanece fija y la dirección de la polarización se define a lo largo del campo eléctrico. Este tipo de onda es emitido por una antena, de forma resumida, se puede exlicar la propagación como el resultado de expandir y comprimir un campo magnético muy rápido, esto se puede conseguir abriendo y cerrando alternativamente el suministro de energía a un circuito especifico, dicho circuito se denomina oscilador.\\
+
+La onda electromagnética resultante tiene una forma sinusoidal, como se puede observar en la Figura 5.2.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Parametros caracteristicos de una onda.png}
+    \caption{Parámetros caracteristicos de una onda de radio.  \textit{Fuente: \href{https://www.mecatronica.net/emilio/fisica/MovimientoOndulatorio.htm}{Mecatronica.net}}}
+    \label{fig:placeholdereonda}
+\end{figure}
+
+También en la Figura 5.2 se pueden observar cuatro caracteristicas fundamentales que definen una onda, que son:\\
+\begin{itemize}
+	\item La amplitud, es la distancia desde el nivel medio hasta la cresta o el valle de la onda, y está relacionada con la cantidad de energía que transporta.
+	\item La longitud de la onda, distancia que recorre la onda en un ciclo completo, medida en metros. 
+	\item El ciclo, es el recorrido completo que realiza la onda durante su movimiento, representando un patrón repetitivo.
+	\item La frecuencia de una onda de radio, número de ciclos completos que se producen en una unidad de tiempo, expresado en hercios (Hz), donde un hercio equivale a un ciclo por segundo. Si se mide en grados, un ciclo completo corresponde a 360 grados, lo que permite comparar dos ondas evaluando su diferencia de fase.\\
+\end{itemize}
+
+Las ondas electromagnéticas tienen las mismas propiedades que las luminosas, diferenciándose sobre todo en su longitud de onda.\\
+
+La relación entre la velocidad de propagación (\(\nu\)), la frecuencia (f [Hz]) y la longitud de onda (\(\lambda\)) es dada por:
+\begin{equation}
+	\nu = \lambda f
+\end{equation}
+
+La velocidad de propagación de una onda depende del medio en el que se desplaza. En el vacío, esta velocidad corresponde a la velocidad de la luz (c), pero en otros medios se relaciona mediante la siguiente ecuación:
+\begin{equation}
+	\nu =\frac{c}{n}
+\end{equation}
+
+Donde n es el índice de refracción del medio. En el caso del aire, el índice de refracción es prácticamente igual a 1, por lo que obtenemos:
+\[
+f = \frac{c}{\lambda} = \frac{300}{\lambda} \cdot 10^{6} = \frac{300}{\lambda} \cdot 10^{6} [MHz]
+\]
+
+En un primer paso analizaremos la elongación de la onda aplicando la ecuación general de una onda armónica simple, también conocida como onda viajera, que se expresa como:\\
+
+\begin{definicion}[Ecuación matemática de la onda armonica]
+\begin{equation}
+	y(x,t) = A \cdot  sen(k (x \pm \nu \cdot t) + \phi_0)
+\end{equation}
+\end{definicion}
+
+\begin{itemize}
+\item \(y(x,t)\) es la elongación, es la posición de una partícula localizada a una distancia ''x'' de su posición de equilibrio en un tiempo t.
+\item El parámetro A es la amplitud, visto en la figura \ref{fig:placeholdereonda}, es la elongación máxima.
+\item k es el número de onda, que describe la cantidad de ondas completas están contenidas en una longitud de 2 \(\pi\) (es un factor de conversión entre espacio y ángulo,\(k = \frac{2 \pi}{\lambda}\)), si el valor de k es grande, se apreciará como la onda se estrecha, mientras que si es un valor pequeño se observa una dilatación de la onda
+\item  El símbolo \(\pm\) indica el sentido del desplazamiento de la onda, a diferencia de la intuición general, el valor positivo es hacía la izquierda y positivo hacia la derecha.
+\item \(\nu\) es la velocidad de fase (a la que se propaga la onda por el tiempo, \(\nu = \frac{\omega}{k}\)). 
+\item \(\phi_0\) es el ángulo de fase inicial de la onda.\\
+\end{itemize}
+
+Esta ecuación nos ayudará a entender el comportamiento de la onda en su transmisión y recepción.\\
+
+Una característica muy importante en la propagación de las ondas es su polarización, es la orientación de la oscilación de una onda. Las ondas electromagnéticas que se propagan de manera natural (como la luz del sol) oscilan en múltiples orientaciones. Pero nosotros podemos modificarlas (colocando filtros) y generar que oscilen de forma controlada.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{polarizacion.png}
+    \caption{Tipos de polarización de ondas electromagneticas. \href{https://medium.com/@steven98.sr/polarizaci\%C3\%B3n-de-ondas-electromagn\%C3\%A9ticas-67bce51a203d}{medium.com}}
+    \label{fig:placeholdeeeeerjejejejejeejej}
+\end{figure}
+
+\section{Bandas del espectro de frecuencias}
+El espectro electromagnético esta formado por el conjunto de todas las ondas electromagnéticas, partiendo de frecuencias pequeñas y llegando a las más altas. La división de las ondas electromagnéticas con carácter general es:\\
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{azulclarito} Ondas de voz & Radiofrecuencia & Microondas & Infrarrojos & Visible \\ \hline
+20 Hz - 20 KHz & 20 KHz - 1 GHz & 1 - 750 GHz & 750 GHz - 3 THz & 384 - 769 THz \\ \hline
+\end{tabular}
+}
+\vspace{0.3cm}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{azulclarito} Ultravioleta & Rayos X & Rayos \(\gamma\) & Rayos cósmicos \\ \hline
+750 - 3000 THz & \(3 \cdot 10^{16} - 6 \cdot 10^{19}\) Hz & \(6 \cdot 10^{19} - 3 \cdot 10^{22}\) Hz & \(3 \cdot 10^{22}\) Hz en adelante \\ \hline
+\end{tabular}
+}
+\caption{Bandas del espectro de ondas electromagnéticas}
+\end{table}
+A continuación, nos centraremos en las distintas bandas del espectro de ondas de radio y su uso en aeronáutica.\\
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor{azulclarito} Longitud de & Frecuencia & Banda & Uso en \\ 
+\rowcolor{azulclarito} onda [\( \lambda \)] & [\textit{f}] & ITU\footnote{La banda ITU hace referencia a la clasificación del espectro de radio frecuencias realizada por la Union Internacional de Telecomunicaciones, la ''ITU'' por sus siglas en inglés} & aeronáutica\\ \hline
+100 km & 3 KHz  & \multirow{2}{*}{VLF}  & \multirow{2}{*}{Ninguno} \\ 
+ - 10 km & - 30 KHz &  & \\ \hline
+10 km  & 30 KHz  & \multirow{2}{*}{LF}  & Automatic Direction Finder (ADF), \\ 
+- 1 km &- 300 KHz & & Loran - C \\ \hline
+1 km   & 300 KHz  & \multirow{2}{*}{MF}  & Automatic Direction Finder (ADF), \\ 
+ - 100 m & - 3 MHz & & Comunicaciones de larga distancia\\ \hline
+100 m   & 3 MHz & \multirow{2}{*}{HF}  & \multirow{2}{*}{Comunicaciones de larga distancia}\\ 
+ - 10 m  & - 30 MHz &  & \\ \hline
+10 m   & 30 MHz & \multirow{2}{*}{VHF}  & Comunicaciones de corta distancia,\\ 
+- 1 m &  - 300 MHz & & VOR, ILS\\ \hline
+1 m   & 300 MHz  & \multirow{2}{*}{UHF}  & ILS, DME, SSR, GNSS,\\ 
+- 10 cm & - 3 GHz & & Comunicaciones por satélite\\ \hline  
+10 cm  & 3 GHz& \multirow{2}{*}{SHF}  & Radar, Comunicaciones satelite,\\ 
+ - 1 cm &  - 30 GHz & & MLS\\ \hline    
+\end{tabular}
+\caption{Bandas del espectro de radio}
+\end{table}
+
+
+\section{Propagación de ondas de radio}
+\subsection{Atenuación}
+El término de atenuación se refiere a la densidad de potencia (energía transportada por segundo y por unidad de área) emitida. Cuanto mayor es la distancia hasta el emisor, menor es la densidad de potencia. En el vacío, las ondas de radio se propagan en línea recta a la velocidad de la luz, pero la densidad de potencia disminuye según la ley del inverso del cuadrado de la distancia, debido a que la misma cantidad de energía se reparte en un área mayor.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{leyinversadelcuadrado.jpg}
+    \caption{\centering Ley inversa del cuadrado. \textit{ Fuente: Apuntes de clase Equipos y sistemas embarcados UCLM}}
+    \label{fig:placeholder}
+\end{figure}
+
+Cuando las ondas de radio se viajan a través de la atmósfera, se producen procesos adicionales de atenuación, principalmente debido a la absorción y la dispersión:\\
+
+\begin{itemize}
+\item \textbf{Abosrción:} La energía de la onda de radio se convierte en otra forma, como calor, dentro del medio que la absorbe. Por ejemplo, para ciertas longitudes de onda (\(\lambda\)), la ionosfera\footnote{La ionosfera es una región de la atmósfera terrestre, ubicada aproximadamente entre los 60 km y 1.000 km de altura, que está compuesta por partículas ionizadas debido a la radiación solar.} absorbe las ondas de radio, transfiriendo su energía a los iones en forma de energía cinética.
+\item \textbf{Dispersión:} Ocurre cuando una partícula absorbe energía de la onda y luego la reemite en todas las direcciones, disminuyendo la energía del haz principal.\\
+\end{itemize}
+
+La absorción y dispersión son especialmente relevantes en presencia de gotas de agua y partículas de polvo, y aumentan con la frecuencia de las ondas de radio, siendo particularmente intensas para frecuencias mucho mayores a 1 GHz.\\
+
+Mientras se produce la propagación entre el transmisor y el receptor, las ondas también desarrollan ruido estático, es decir, fluctuaciones aleatorias en su amplitud, producto de la dispersión atmosférica y de las interferencias eléctricas.\\
+
+ 
+
+\subsection{Propagación no ionosférica}
+\subsubsection{Ondas de superficie (o terrestres): 20 KHz a 50 MHz (LF - HF)}
+
+El aire tiene un índice de refracción, \( n \), cercano a 1, mientras que el suelo presenta un índice de refracción mayor. A bajas frecuencias, la onda de radio penetra significativamente en el suelo. Dado que la velocidad de propagación en un medio es:
+\[
+\nu = \frac{c}{n}
+\]
+
+La parte de la onda que se propaga dentro del suelo viaja más lentamente en comparación con la parte que se desplaza en el aire. Esta diferencia de velocidades causa una curvatura en los frentes de onda, permitiendo que la onda siga la superficie terrestre., este efecto se ve ilustrado en la siguiente imagen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{Incremento del indice de refraccion debido al suelo.png}
+    \caption{\centering Incremento del índice de refracción debido al suelo. \textit{ Fuente: Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:placeholder}
+\end{figure}
+
+A medida que la frecuencia aumenta, la atenuación de la onda en la superficie también lo hace, lo que reduce su alcance. Las pérdidas son mayores sobre la tierra que sobre el agua. Este modo de propagación se emplea en bandas LF - MF (30 KHz a 2 MHz), donde se utilizan ondas de radio con polarización vertical.\\
+
+El alcance de un transmisor en función de su potencia se estima con las siguientes ecuaciones:
+\begin{equation}
+\begin{split}
+\text{Alcance sobre el mar: } & 3 \cdot \sqrt{\text{Potencia en W}} \\  
+\text{Alcance sobre la tierra: } & 2 \cdot \sqrt{\text{Potencia en W}}
+\end{split}
+\end{equation}
+
+Debido a la diferencia de índices de refracción entre la tierra y el mar, cuando las ondas cruzan la costa con un ángulo distinto a 90º experimentan una variación en su velocidad de propagación. Como resultado, la dirección de la onda se desvía al atravesar la frontera entre ambos medios, lo que puede inducir errores en la información de rumbo en los sistemas de navegación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6 \textwidth]{refraccion sin refraccion.png}
+    \caption{\centering Los índices de refracción de la tierra y el mar provocan refracción costera por incidencia anormal y con posibles errores de orientación. \textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsubsection{Ondas espacial (o directa) > 50 MHz (VHF)}
+A frecuencias superiores a 50 MHz, hay una penetración insignificante de las ondas de radio en el suelo y las ondas son absorbidas o reflejadas cuando encuetran terreno. La propagación es una mezcla de una onda directa desde el transmisor y una onda reflejada en el suelo. La propagación VHF es solo en línea de vista, por lo que está limitada por el horizonte, se puede expresar el alcance como:
+\begin{equation}
+ Alcance = 1,23 \cdot (\sqrt{H_{TX}[ft]} + \sqrt{H_{RX}[ft]}) \quad [Millas  \, Nauticas]
+ \end{equation}
+
+La ecuación es independiente de la potencia del transmisor, ya que la distancia en línea es el factor limitante. Las alturas del transmisor y receptor se ven representados en la siguiente imagen:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/onda directa u onda reflejada.png}
+    \caption{\centering Onda directa para frecuencias VHF. \textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:mi-imagen17}
+\end{figure}
+
+\subsection{Propagación ionosférica}
+
+\subsubsection{Origen de la ionosfera}
+La ionosfera es una región de la atmósfera terrestre donde la radiación ultravioleta del Sol ioniza los átomos y moléculas para formar pares de electrones e iones. Aunque estos electrones e iones pueden recombinarse, la única forma de que la capa ionizada se mantenga estable, es que la densidad de átomos sea lo suficientemente baja para que la tasa de recombinación no supere la tasa de ionización.\\
+
+La densidad de iones cambia con la altitud, alcanzando su máximo alrededor de los 300 km. Por encima de esa altura, la densidad de átomos disminuye considerablemente, lo que reduce la producción de iones. Por debajo de los 300 km, la recombinación es demasiado eficiente para electrones e iones, causando que la ionización neta disminuya.  Adicionalmente, la estructura de la ionosfera cambia entre el día y la noche: durante el día, la radiación solar crea más capas ionizadas, mientras que por la noche, la falta de radiación reduce la ionización, lo que puede interferir con las transmisiones de radio.\\
+
+Este comportamiento tiene un impacto directo en cómo se propagan las ondas de radio. Las capas adicionales reflejan las ondas de radio y permiten que las transmisiones de larga distancia sean más eficientes durante el día.  Sin embargo, durante la noche, la ionosfera se debilita, lo que puede causar problemas en las comunicaciones, especialmente en las frecuencias altas, donde la absorción y dispersión de la señal juegan un papel más importante, dificultando las comunicaciones. \\
+
+\subsubsection{Capas de la ionosfera}
+
+La ionosfera se divide en tres regiones principales  D, E y F. Estas capas se distinguen por su altitud, densidad de electrones y su comportamiento en la propagación de ondas de radio.\\
+
+\begin{nosangria}
+\textbf{Capa D}:
+\end{nosangria}
+\begin{itemize}
+\item Altitud: Entre 50 y 90 km sobre la superficie terrrestre.
+\item Densidad de electrones baja.
+\item Más presente durante el día que por la noche, absorve las ondas de radio de baja frecuencia.\\
+\end{itemize}
+
+\begin{nosangria}
+\textbf{Capa E}:
+\end{nosangria}
+\begin{itemize}
+\item Altitud: Entre 90 y 150 km sobre la superficie terrrestre.
+\item Densidad de electrones moderada.
+\item Sobretodo refleja las ondas de radio de frecuencias medias y ayuda a la propagación de ondas a distancias moderadas.\\
+\end{itemize}
+
+\begin{nosangria}
+\textbf{Capa F}:
+\end{nosangria}
+\begin{itemize}
+\item Altitud: Entre 150 y 500 km sobre la superficie terrrestre.
+\item Densidad de electrones alta. Por el día se dividen en dos subcapas, \(F_1\) con una densidad más baja y \(F_2\) (responsable de la mayoría de reflexiones de ondas de radio)
+\item Es la capa más importante para la propagación de ondas de radio de alta frecuencia en comunicaciones de larga distancia.\\
+\end{itemize}
+
+Todas las capas se representan en la siguiente imagen:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{capas ionosfera.png}
+    \caption{\centering Regiones de la ionosfera. \textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control}}
+    \label{fig:mi-imagen17}
+\end{figure}
+
+\subsubsection{Reflexión y absorción de ondas de radio por la ionosfera}
+
+La ionosfera, debido a su densidad variable de iones, actúa como un medio con un índice de refracción que cambia con la altitud, lo que le permite reflejar ondas de radio bajo ciertas condiciones. El tipo de onda reflejada por la ionosfera se conoce como onda celeste. Sin embargo, existe un límite llamado "frecuencia crítica", por encima del cual las ondas de radio no serán reflejadas, sino que atravesarán la ionosfera o serán absorbidas.\\
+
+La frecuencia crítica está directamente relacionada con la densidad de electrones en la ionosfera. Es el valor máximo de frecuencia a la cual una onda de radio puede ser reflejada verticalmente por la ionosfera. Si la frecuencia de la onda está por encima de este valor, la ionosfera ya no puede reflejarlo, y la onda es libre de propagarse hacia el espacio exterior.  Este fenómeno ocurre porque la ionosfera deja de actuar como un espejo para las ondas de alta frecuencia, mientras que para frecuencias menores sigue reflejándolas, facilitando así las comunicaciones a larga distancia.\\
+
+En la transmisión de ondas de radio, este principio es crítico porque determina las bandas de frecuencia que pueden aprovecharse para rebotar en la ionosfera y cubrir grandes distancias, lo que tiene aplicaciones importantes en la navegación aérea y marítima, así como en las comunicaciones internacionales.\\
+\begin{nosangria}
+\textbf{Cálculo de la frecuencia crítica:}\\
+\end{nosangria}
+
+El índice de la refracción de un medio se expresa como: \( n = \sqrt{\epsilon}\). Siendo \(\epsilon\) la constante dieléctrica del medio. Para una onda de frecuencia angular \(w = 2 \pi f\), donde \(f\) es la frecuencia lineal, la constante dieléctrica viene dada por:
+\begin{equation}
+\epsilon = 1 - \frac{{\omega_{p}}^{2}}{{\omega}^{2}}
+\end{equation}
+
+Aquí, \( \omega_p \) representa la \textbf{frecuencia de plasma}, que en un plasma cargado, como la ionosfera, se define como:
+\begin{equation}
+\omega_{p} = \sqrt{\frac{N {e}^{2}}{\epsilon_{0} m}}
+\end{equation}
+
+En esta ecuación, \( N \) es la densidad de electrones, \( e \) la carga del electrón, \( \epsilon_{0} \) la permitividad del vacío, y \( m \) la masa del electrón.\\
+
+Las contribuciones de los iones positivos son despreciables, ya que la constante dieléctrica depende mayormente de los electrones. Para un valor típico de \( N = {10}^{11} \, [\text{m}^{-3}] \), junto con \( e = 1.6 \cdot 10^{-19} \,[ \text{C}] \), \( \epsilon_{0} = 8.85 \cdot 10^{-12} \, [\text{F/m}] \), y \( m = 9.1 \cdot 10^{-31} \, [\text{kg}] \), se obtiene una frecuencia de plasma \( \omega_{p} \approx 18 \, \text{MHz} \), lo que corresponde a una frecuencia lineal \( f \) de aproximadamente 2.8 MHz. Este valor es la \textbf{frecuencia crítica} (\( f_{\text{crit}} \)), ya que las ondas con frecuencias superiores serán absorbidas debido a oscilaciones en el plasma.\\
+
+La frecuencia crítica puede expresarse como:
+\begin{equation}
+f_\text{crit} = \frac{1}{2\pi} \sqrt{\frac{e^2 N}{\epsilon_0 m}}
+\end{equation}
+
+De esta fórmula, es evidente que \( f_{\text{crit}} \) depende exclusivamente de la densidad electrónica \( N \), ya que los demás parámetros son constantes. Sustituyendo los valores de las constantes, se obtiene una aproximación práctica:
+\begin{equation}
+f_\text{crit} \approx 9 \sqrt{N}
+\end{equation}
+
+Cuando las ondas de radio inciden sobre la ionosfera con un ángulo \( \theta \), las frecuencias máximas reflejadas, denominadas \textbf{frecuencia máxima utilizable} (\( f_{\text{muf}} \)), se calculan como:
+\begin{equation}
+f_\text{muf} = \frac{f_\text{crit}}{\sin\theta}
+\end{equation}
+
+Si la frecuencia excede \( f_{\text{crit}} \), existe un ángulo crítico \( \theta{_\text{crit}} \) por encima del cual las ondas no son reflejadas. Las capas D, E y F de la ionosfera presentan densidades crecientes de electrones, por lo que la frecuencia crítica aumenta con la altitud. Las ondas de radio en frecuencias de hasta 2 MHz (banda MF) son reflejadas principalmente por la capa E, mientras que las de 2–50 MHz (banda HF) lo son por la capa F.\\
+
+En la práctica (debido a las incertidumbres en cuanto al estado de la ionosfera) se suele utilizar la frecuencia óptima de trabajo (OWF):
+\begin{equation}
+f_\text{OWF} = 0.85 \cdot f_\text{muf} 
+\end{equation}
+
+La distancia recorrida por una onda reflejada por la ionosfera, conocida como distancia de salto, depende de la altitud de la capa utilizada. Existe también una región no cubierta por ondas, llamada espacio muerto, entre la onda terrestre y la onda celeste.\\
+
+
+\begin{example}[Cálculo de la OWF para una transmisión transcontinental]
+
+Se requiere establecer una comunicación utilizando ondas celestes (skywaves) desde una estación HF ubicada en Dakar, en la costa oeste de África, hacia un barco que navega en el Atlántico a 1700 millas náuticas de distancia. En el momento de la transmisión, los valores promedio de densidad electrónica y altura de la capa F2 son \(4 \cdot {10}^{11} [m^{-3}]\) y 300 [km], respectivamente.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ejemplo 1.png}
+\end{figure}
+
+Determina la frecuencia óptima de trabajo (OWF) para esta transmisión.\\
+
+La distancia entre el transmisor y el barco es de 3148.2 km y, de acuerdo con la geometría de la transmisión, se calcula el ángulo de incidencia:
+
+\[
+\theta = \tan^{-1}\left(\frac{\text{altura de la capa F2}}{\text{mitad de la distancia}} \right) = \tan^{-1}\left(\frac{300}{1574.1}\right)
+\]
+
+\textbf{Solución:}
+\begin{enumerate}
+    \item \textbf{Cálculo de \(f_\text{crit}\):}
+    \[
+    f_\text{crit} = 9 \sqrt{4 \times 10^{11}} = 9 \times 2 \times 10^5 = 5.7 \, \text{MHz}.
+    \]
+
+    \item \textbf{Cálculo del ángulo \(\theta\):}
+    \[
+    \theta = \tan^{-1}\left(\frac{300}{1574.1}\right) = \tan^{-1}(0.1906) \approx 10.8^\circ.
+    \]
+
+    \item \textbf{Cálculo de \(f_\text{muf}\):}
+    \[
+    f_\text{muf} = \frac{5.7}{\sin(10.8^\circ)} \approx \frac{5.7}{0.1878} \approx 30.35 \, \text{MHz}.
+    \]
+
+    \item \textbf{Cálculo de \(f_\text{owf}\):}
+    \[
+    f_\text{owf} = 0.85 \times 30.35 \approx 25.8 \, \text{MHz}.
+    \]
+\end{enumerate}
+\end{example}
+
+
+\section{Efecto Doppler}
+El efecto Doppler describe la variación de la frecuencia de una onda percibida por un observador una fuente emisora en movimiento. Es un fenómeno que se observa tanto en ondas sonoras como en ondas electromagnéticas. En el caso de las ondas sonoras, el efecto se experimenta cuando una fuente de sonido se acerca o se aleja de un oyente, generando un cambio en el tono percibido. En el ámbito electromagnético, este fenómeno juega un papel crucial en la astronomía y en sistemas de medición como los radares Doppler.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{doppler.jpg}
+    \caption{\centering Efecto Doppler. \textit{ Fuente:Creación propia}}
+    \label{fig:mi-imagen17}
+\end{figure}
+
+Si una fuente de ondas emite una señal con una frecuencia $f_0$ y se encuentra en movimiento con una velocidad $v_F$ en la dirección radial, la frecuencia percibida $f_P$ se determina mediante la expresión aproximada:
+\begin{equation}
+    f_P = f_0 \left( 1 - \frac{v_F}{c} \right),
+\end{equation}
+
+Si la fuente se aleja ($v_F > 0$), la frecuencia observada disminuye, mientras que si se acerca ($v_F < 0$), la frecuencia aumenta.

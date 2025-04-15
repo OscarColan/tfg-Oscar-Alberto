@@ -1,0 +1,446 @@
+
+\chapter{Instrumentos de datos de aire}
+\setchapterimage{orange1.jpg} % Chapter heading image
+\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+\section{Instrumentos de Altimetría}
+Los instrumentos de altimetría son fundamentales para medir la altitud y garantizar la seguridad del vuelo. A continuación, se realizará una descripción de los principales sistemas empleados para esta tarea.\\
+
+\begin{minipage}{0.3\textwidth} % Definir el ancho de la imagen
+    \centering
+    \includegraphics[width=\linewidth]{barometro mercurio a.jpg}
+    \captionof{figure}{\centering Intrumento barométrico de mercurio \textit{ Fuente: \href{https://www.tiempo.com/noticias/ciencia/barometro-y-barografo-para-medir-la-presion-del-aire.html}{tiempo.com/noticias/ciencia}}}
+\end{minipage}
+\hspace{1cm}
+\begin{minipage}{0.57\textwidth} % Definir el ancho del texto
+    Los altímetros barométricos convierten la presión atmosférica en una medida estándar para cada nivel de altitud. Los primeros altímetros barométricos utilizaban sistemas basados en mercurio. Este sistema consistía en un tubo de vidrio cerrado por la parte superior y abierto por inferior, y estaba sumergido en una cubeta de mercurio. La columna de mercurio variaba en función de la presión atmosférica circundante, dejando un espacio vacío (lleno de vapor de mercurio) en la parte superior. La columna de mercurio subía con mayor presión y bajaba con menor presión.
+\end{minipage}
+
+\vspace{0.5cm}
+
+
+Aunque el sistema de mercurio resultó útil, presentaba varias limitaciones: eran bastaban grandes y pesados, existía riesgo de fugas de mercurio y respondían de manera lenta a los cambios de presión. Debido a estos inconvenientes, se exploraron otras alternativas para los altímetros barométricos, por ejemplo, el uso de cápsulas aneroides.\\
+
+Las cápsulas aneroides son pequeños recipientes metálicos sellados que pueden expandirse o comprimirse en función de los cambios de presión. En estas cápsulas hay una cantidad mínima de aire (la presión es aproximadamente cero), y si no estuvieran selladas, serían aplastadas bajo la presión atmosférica externa, pero esto se evita colocando un resorte laminado robusto, instalado de forma que un extremo este unido con la parte superior de la cápsula; y la otra parte a lo largo de la base del instrumento.
+
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{c c c}  
+        \includegraphics[width=0.30\textwidth]{capsulaaneroide unietapa.png} & 
+        \includegraphics[width=0.30\textwidth]{capsulaaneroide multietapa 1.png} &
+       \includegraphics[width=0.33\textwidth]{capsulaaneroide multietapa 2.png}\\
+        \textit{Cápsula unicelular }  &
+        \multicolumn{2}{c}{\textit{Cápsulas multipila }}\\
+    \end{tabular}
+
+    \caption{Representación de las cápsulas aneroides. \textit{Fuente: \href{https://www.kearflex.com/industrial-capsule-assemblies/}{kearflex.com}}}
+        \label{fig:hola22}
+\end{figure}
+
+
+Esta cápsula se coloca dentro de una cámara cerrada que es alimentada por la presión atmosférica que recibe el avión. A medida que la presión del aire varía, la cápsula se expande o se comprime. En un altímetro, se emplean múltiples cápsulas aneroides conectadas entre sí (cápsulas multipila, Figura \ref{fig:hola22}) para aumentar la sensibilidad ante los cambios de presión.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{capsulaaneroide}
+    \caption{\centering Representación de las capsulas aneroides dentro de una cámara cerrada.\textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control.}}
+    \label{fig:ca}
+\end{figure}
+
+El desplazamiento causado por la expansión y contracción de las cápsulas aneroides es minúsculo. Para asegurar que el piloto pueda interpretar el instrumento, este movimiento se amplifica y se convierte en uno rotacional mediante un sistema de engranajes de alta sensibilidad. Dicho sistema transmite la información al dial del altímetro, permitiendo así la visualización precisa de la altura del avión sobre el nivel del mar.\\
+
+Dado que la relación entre la altitud y la presión atmosférica no es lineal (es de tipo exponencial), el mecanismo de transmisión debe compensar esta variabilidad para asegurar una lectura proporcional en el indicador. Debido a esto, el primer paso, consiste en transformar el desplazamiento axial de las cápsulas aneroides en un movimiento rotativo, facilitado por un sistema de palancas y engranajes diseñado para maximizar la precisión de la lectura. Este sistema está calibrado para proporcionar una indicación lineal de la altitud en la pantalla, que en el caso de la figura \ref{fig:altimetro} se muestra una representación del sistema de tres punteros.\\
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{c c}  
+        \includegraphics[width=0.65\textwidth]{figura213a.png} & 
+       \includegraphics[width=0.3\textwidth]{altimetro2.jpg}\\
+    \end{tabular}
+
+    \caption{\centering Representación del mecanismo del altímetro barométrico, permite la conversión y amplificación del movimiento junto con el indicador de altitud.\textit{Fuente: Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control.}}
+    \label{fig:altimetro}
+    
+\end{figure}
+
+Este diseño moderno no solo resuelve los problemas de los altímetros de mercurio, sino que también permite una medición más precisa y fiable en un rango más amplio de altitudes, además de ser más ligeros y compactos.\\
+
+Descomponiendo el mecanismo de la Figura \ref{fig:altimetro}, se observa que el movimiento axial de las cápsulas aneroides se transfiere al eje oscilante (rocking shaft), en la Figura \ref{fig:yepaa} se representa la relación que hay en el incremento del angulo del eje oscilante (\(\theta\)) con la distancia con las cápsulas aneroides (d), con el desplazamiento axial de la compresión o expansión (x) y con el ángulo inicial del eje (\(\phi\)).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{cosoraro.jpg}
+    \caption{\centering Desplazamiento linal de una cápsula anaeroide a un eje oscilante. \textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control.}}
+    \label{fig:yepaa}
+\end{figure}
+
+
+Luego, el eje oscilante está unido a un engranaje sectorial que engrana con un piñón. Este, a su vez, está conectado a una caja de engranajes que impulsa tres ejes concéntricos vinculados a los tres punteros.\\
+
+Por ejemplo, si la aeronave se encuentra a nivel del mar, el altímetro registrará una presión de 1013,25 hPa. Si asciende a 38 600 pies, la presión disminuirá aproximadamente a 200 hPa, lo que provocará la expansión de las cápsulas aneroides debido a la reducción de presión. Como consecuencia, el eje oscilante rotará unos 45\textdegree (este valor depende de la calibración del altímetro).\\
+
+Observando el puntero más interno, que representa las centenas de pies y completa una revolución cada 1000 pies, al ascender 38 600 pies, realizará 38 revoluciones completas y luego avanzará 0,6 de una revolución adicional para indicar los 600 pies restantes.\\
+
+Para garantizar la correcta transmisión del movimiento, la rotación del eje oscilante debe amplificarse por un factor de:
+
+\[
+38.6 \times \frac{360}{45} = 310
+\]
+
+\begin{example}[Cálculo de relación de engranajes]
+
+En un altímetro específico, un cambio en la presión estática desde el valor estándar a nivel del mar según la ISA (\textbf{1013,25 hPa}) hasta \textbf{100 hPa} provoca que el ancho del conjunto de cápsulas aneroides cambie en \textbf{2,5 cm}. Si la distancia entre el enlace del actuador y el centro del eje oscilante es de \textbf{1,5 cm} y el ángulo inicial \(\phi\) es \textbf{0 \textdegree}.\\
+
+Se puede calcular la relación de engranajes necesaria entre el eje oscilante y el puntero que indica las centenas de pies.\\
+
+El cambio en la presión generará una rotación del eje oscilante de:
+\[
+\theta = \arctan\left(\frac{2.5}{1.5}\right) = 59.04^\circ
+\]
+
+Dado que una presión de \textbf{100 hPa} corresponde a una altitud mayor a \textbf{11 km}, utilizamos la ecuación barométrica:
+\[
+P = P_0 \exp\left(\frac{-gh}{216.65R}\right)
+\]
+
+Reordenando para despejar la altitud \(h\):
+\[
+h = \frac{216.65R}{g} \log_e \left(\frac{P_0}{P}\right)
+\]
+
+Donde:
+\begin{itemize}
+    \item \( R = 286.9 \) J kg\(^{-1}\) K\(^{-1}\) (constante del gas para el aire seco).
+    \item \( g = 9.807 \) m/s\(^{2}\) (aceleración gravitacional).
+\end{itemize}
+
+Sustituyendo los valores:
+\[
+h = 6338 \log_e(10.1325) = 14\,677 \text{m} = 48\,154 \text{ pies}
+\]
+
+Dado que la rotación del eje oscilante es de \textbf{59.04 \textdegree}, este debe accionar el puntero de las centenas de pies a través de \textbf{48.154 revoluciones}. Por lo tanto, la relación de engranajes es:
+\[
+\frac{59.04}{\left(48.154 \times 360\right)} = 1:294
+\]
+\end{example}
+
+El panel frontal del altímetro incluye:\\
+
+\begin{itemize}
+\item Dial o escala de altitud. En general, la escala está numerada del 0 al 9 en el sentido de las agujas del reloj, con marcas intermedias cada 20 pies.
+\item Agujas o punteros indicadores. En el ejemplo de la Figura \ref{fig:altimetro} el altimetro utiliza tres agujas, la más pequeña señala las decenas de miles de pies, la intermedia los miles de pies y la mayor las centenas de pies. Si tiene solo dos agujas, la menor indica miles y la mayor centenas de pies. 
+\item Ventana de ajuste de presión barometrica, permite al piloto introducir la presión barométrica de referencia. Conocida como ventana de Kollsman.
+\item Perilla de ajuste de presión (Altimeter Setting Knob), permite modificar manualmente la presión barométrica de referencia.
+
+Consiste en una escala o contador engranado al eje de la perilla. Este eje posee un piñón que engrana con un engranaje ubicado alrededor del mecanismo principal. Al ajustar la presión girando la perilla, también gira el mecanismo principal, ajustando las agujas a la altitud correspondiente sin alterar la calibración de las cápsulas aneroides.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Ajuste.jpg}
+    \caption{\centering Mecanismo de ajuste barométrico. \textit{Fuente: Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control.}}
+    \label{fig:yepea}
+\end{figure}
+
+En el ejemplo de la Figura \ref{fig:yepea}, el altímetro se encuentra ajustado a condiciones estándar (1013 milibares), lo que sitúa la aguja en 0 pies. Posteriormente, si se modifica la presión de referencia de 1013 a 1003 milibares, la escala girará en el sentido de las agujas del reloj, lo que hará que la aguja del altímetro gire en sentido contrario, indicando -270 pies. Finalmente, cuando las cápsulas aneroides detecten una disminución real de 10 milibares, el altímetro volverá a marcar 0 pies.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{calibrado.jpg}
+    \caption{\centering Ejemplo de ajuste barométrico. \textit{ Fuente: Creación propia.}}
+    \label{fig:yoepea}
+\end{figure}
+
+
+\item Bandera de advertencia. Indica si el instrumento no está funcionando correctamente o si la presion de referencia no está bien ajustada.\\
+\end{itemize}
+
+Como se comentó anteriormente, la lectura del altímetro depende de la presión de referencia ajustada mediante la ventanilla de Kollsman. Este instrumento mide las variaciones de presión entre la referencia establecida y la presión atmosférica real a una altura determinada.\\
+
+Existen tres tipos principales de ajustes del altímetro, que se emplean según la situación:\\
+\begin{itemize}
+\item \textbf{QNH:} Representa la presión al nivel del mar calculada desde la presión existente en el aeródromo, suponiendo condiciones atmosféricas estándar. Este ajuste es el más común para vuelos cerca del aeródromo, ya que permite al altímetro indicar la altitud \footnote{Altitud: distancia vertical entre un punto, nivel u objeto y el nivel medio del mar.}. 
+
+ Este reglaje es útil en las operaciones cercanas al aeródromo, ya que ayuda a garantizar márgenes de seguridad respecto a los obstáculos en la zona, cuya altitud está indicada en las cartas de navegación. Al tratarse de un ajuste local, proporciona información vertical más precisa. 
+
+\item \textbf{QFE:} Se refiere a la presión atmosférica en un punto específico de la superficie, como la pista de aterrizaje. Con este ajuste, el altímetro muestra la altura\footnote{Altura: distancia vertical entre un nivel, punto u objeto y una referencia específica.} respecto a la pista. Aunque el QFE puede ser solicitado por los pilotos, su uso es poco común en comparación con el QNH.
+
+\item \textbf{QNE:} Corresponde a la presión estándar al nivel del mar (1.013 hPa). Este reglaje es clave para vuelos a grandes alturas, donde la prioridad no es el terreno, sino la separación entre aeronaves en el espacio aéreo.
+
+ Por encima de una altitud denominada \textbf{altitud de transición}, la OACI establece que todas las aeronaves utilicen la presión estándar como referencia para garantizar una separación uniforme. Esto asegura que cualquier variación atmosférica afecte a todas las aeronaves por igual, manteniendo los márgenes de seguridad. Cuando el altímetro está ajustado en QNE, indica el nivel de vuelo: por ejemplo, si muestra 10,000 pies, la aeronave está en el nivel de vuelo 100 (FL 100).\\
+\end{itemize}
+
+\subsection{Servo altímetro}
+
+El servo altímetro es un dispositivo que mejora la precisión en la medición de la altitud, corrigiendo los problemas presentes en los altímetros puramente mecánicos. Estos altímetros mecánicos, que dependen de cápsulas aneroides para detectar la presión estática, pueden no registrar pequeños cambios de presión debido a la fricción en los engranajes. Para superar este inconveniente, se desarrolló el  servo altímetro, el cual utiliza un sistema inductivo para detectar el movimiento de las cápsulas aneroides.\\
+
+La captación inductiva se refiere a la detección del movimiento de las cápsulas anaeroides mediante un sistema basado en inducción electromagenética, como se ilustra en la Figura \ref{fig:yepaaa}. Esta captación es conocida como barra E-I debido a la forma de sus componentes.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figura215a.jpg}
+    \caption{\centering Representación del principio de funcionamiento del servo altímetro con captación inductiva E-I.\textit{ Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control.}}
+    \label{fig:yepaaa}
+\end{figure}
+
+La barra E contiene una bobina en cada lengüeta. Una señal de excitación se aplica a la bobina en la lenüeta central, e induce una señal eléctrica en las lengüetas exteriores, este comportamiento lo describe la ley de Faraday:\\
+
+\begin{definicion}[Ley de Faraday]
+\begin{equation}
+V = -N \frac{d \phi}{d t}
+\end{equation}
+\end{definicion}
+
+En esta ecuación, \( V \) es el voltaje inducido, \( N \) es el número de vueltas de la bobina y \( \frac{d \phi}{d t} \) representa la variación en el flujo magnético en el tiempo.\\
+
+Si el flujo magnético entre las lengüetas y la barra I es el mismo en ambas bobinas, las señales se cancelan, resultando en una señal nula (Figura \ref{fig:yepaaa} a). Sin embargo, cuando las cápsulas aneroides se expanden o contraen, las brechas de aire entre las lengüetas y la barra I cambian, generando una señal proporcional al movimiento de las cápsulas (Figura \ref{fig:yepaaa} b y c).\\
+
+La señal combinada se amplifica y se utiliza para accionar un servomotor de inducción de dos fases. La dirección de rotación de este motor depende de la diferencia de fase entre las señales de excitación y captación. Así, cuando las cápsulas aneroides se expanden, el motor gira en una dirección, y cuando se contraen, lo hace en la dirección opuesta. Este motor está acoplado a un mecanismo que transfiere la rotación a una caja de cambios.
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{c c}  
+		\includegraphics[width=0.45\textwidth]{age.png} & 
+		\includegraphics[width=0.45\textwidth]{ageb.png}\\
+	\end{tabular}
+	
+    \caption{\centering Representación del mecanismo del servo altimetro.\textit{Fuente:\href{https://greatbustardsflight.blogspot.com/2015/01/el-altimetro-convencional-y-el-ciclo-de.html}{greatbusturdasflight}.}}
+\label{fig:yepa}
+\end{figure}
+
+Una ventaja extra de los altímetros servo, es su facilidad de integrarlo en sistemas de aviónica avanzados, como en los ordenadores centrales de datos de aire consiguiendo una representación más precisa y confiable de lo que sucede en el vuelo.
+
+\section{Indicador de velocidad del aire (ASI)}
+
+Los indicadores de velocidad aerodinámica o anemómetro determinan la velocidad de la aeronave mediante la presión dinámica del aire que se detiene en un tubo de Pitot. La presión medida por el tubo de Pitot se transfiere a una cápsula aneroide, que se encuentra dentro de una caja sellada, mientras que la presión estática se introduce en la misma caja desde una fuente estática.
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.5\textwidth]{asisi.jpg}
+    \caption{\centering Representación del mecanismo del indicador de velocidad del aire. \textit{Fuente: Pilot's Handbook of Aeronautical Knowledge. U.S Department of transpotation.}}
+    \label{fig:placeholder12}
+\end{figure}
+
+La extensión de las cápsulas miden la diferencia entre la presión total del Pitot y la presión estática, es decir, la presión dinámica. Cuando el aire es considerado incompresible (viajando a menos de 0,3 Mach), se cumple la siguiente relación: 
+
+\begin{equation}
+q = \frac{\rho \cdot V^{2}}{2}
+\end{equation}
+
+Como se puede observar en la ecuación anterior, la presión dinámica (q) depende de la densidad. Por lo tanto, al estar calibrado con la densidad de la ISA al nivel del mar (\(\rho_{0} = 1,225 \, \frac{kg}{m^{3}}\)), la velocidad indicada por el ASI será menor que la velocidad real (TAS = True Air Speed).\\
+
+
+Una ventaja de usar la presión dinámica para indicar la velocidad es que todos los parámetros de vuelo importantes, como la sustentación, las condiciones de pérdida, las velocidades críticas para bajar el tren de aterrizaje, velocidad de rotación, de planeo, de crucero, etc., dependen de la presión dinámica, independientemente de la TAS. Por lo tanto, el piloto puede usar la IAS para mantener condiciones de vuelo seguras y determinar si es seguro bajar los flaps y el tren de aterrizaje sin tener que preocuparse por convertir a TAS. Esta última solo es importante para determinar el número de Mach y la velocidad en tierra (después de aplicar una corrección por el viento), que es necesaria para la navegación.\\
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.8\textwidth]{anemometro.png}
+    \caption{\centering Indicador de velocidad del aire. \textit{Fuente: Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control.}}
+    \label{fig:placeholder123}
+\end{figure}
+
+ Una serie de velocidades críticas (las llamadas V-speeds) tienen una terminología estándar y están marcadas en el ASI en un formato de color estandarizado que se muestra en la Figura 2.5 para un avión de hélice
+ bimotor. Estas son:\\
+ 
+ \begin{itemize}
+\item \(V_{S0}\) (Stall Speed in landing configuration): Velocidad de pérdida en configuración de aterrizaje.
+\item \(V_{S1}\) (Stall Speed in a specified configuration): Velocidad de pérdida en una configuración especificada.
+\item \(V_{FE}\) (Maximum Flap Extension speed): Máxima con flaps extendidos.
+\item \(V_{NO}\) (Maximum Structural Cruising Speed): Velocidad máxima de crucero estructural.
+\item \(V_{NE}\) (Never Exceed Speed): Velocidad que nunca debe excederse.
+\item \(V_{YSE}\) Velocidad máxima de ascenso con un motor para un avión bimotor.
+\item \(V_{MCA}\) Velocidad mínima a la que se puede mantener el control de un motor para
+un avión bimotor con el peso máximo de despegue.\\
+\end{itemize}
+
+El uso de códigos de colores en el indicador de velocidad ayuda al piloto a identificar visualmente las distintas limitaciones operativas:
+
+\begin{itemize} 
+	\item \textbf{Arco verde:} Representa el rango de velocidades seguras para la operación normal de la aeronave, comprendido entre \(V_{S1}\) y \(V_{N0}\). Dentro de este intervalo, el avión puede soportar condiciones de turbulencia moderada sin riesgo de comprometer la propia estructura, especialmente en la unión de las alas con el fuselaje.
+	
+	\item \textbf{Arco blanco:} Indica el rango de velocidades en el que es seguro operar con los flaps extendidos, sin que se produzcan daños en su estructura. Este margen se encuentra entre \(V_{S0}\) y \(V_{FE}\).
+	
+	\item \textbf{Arco amarillo:} Señala un rango de velocidad que requiere precaución. Solo es recomendable volar en este intervalo cuando las condiciones meteorológicas son completamente estables, ya que cualquier maniobra brusca o turbulencia podría ocasionar daños estructurales.
+	
+	\item \textbf{Línea roja:} Corresponde a la velocidad límite absoluta del avión en condiciones de aire tranquilo, designada como \(V_{NE}\). Superar este valor comprometería seriamente la resistencia de componentes clave de la estructura. \end{itemize}
+
+\section{Indicador de velocidad vertical (VSI)}
+
+El indicador de velocidad vertical (VSI, Vertical Speed Indicator) o variometro es un instrumento crucial en la cabina de vuelo, ya que proporciona al piloto un valor cuantitativo de su ascenso o descenso, de la rapidez con la que lo está haciendo. Esto es particularmente útil durante maniobras como el aterrizaje y el despegue, o durante los vuelos controlados en condiciones de visibilidad reducida.\\
+
+El funcionamiento del VSI se basa en medir el cambio de la presión estática. Este dispositivo contiene una sola entrada de presión que proviene de la fuente estática, la cual alimenta una pila de cápsulas aneroides hasta llenarlo y transmite la misma presión a la carcasa que rodea a las cápsulas a través de una fuga calibrada. Esta fuga calibrada es clave, ya que introduce un retraso en la igualación de presiones entre la cápsula y la carcasa, permitiendo detectar cambios en la altitud.\\
+
+Cuando la aeronave asciende o desciende, la presión estática varía, y el VSI estas desviaciones de la siguiente forma :\\
+
+\begin{itemize}
+    \item \textbf{Descenso}: Si la aeronave pierde altitud, la presión estática aumenta. Esta mayor presión hace que la cápsula aneroide se expanda, lo que a su vez activa la aguja indicadora para mostrar un descenso.
+    
+    \item \textbf{Ascenso}: Si la aeronave gana altitud, la presión estática disminuye. Como resultado, la cápsula aneroide se comprime, provocando que la aguja del VSI indique un ascenso.\\
+\end{itemize}
+
+Aunque en un primer vistazo el funcionamiento del VSI es sencillo, para proporcionar una lectura precisa y cuantitativa de la tasa de ascenso o descenso, independientemente de la altitud y de la temperatura ambiente, se requiere un diseño adecuado de la fuga calibrada. Este diseño tiene que asegurar una tasa de cambio de presión lineal y precisa en la pantalla del instrumento. Un diseño incorrecto, podría producir errores en la indicación de la tasa de ascenso o descenso, lo que afectaría la toma de decisiones del piloto.\\
+
+Un aspecto a tener en cuenta es que el VSI presenta una indicación ligeramente atrasada, a causa del tiempo que toma la presión en igualarse entre la cápsula y la carcasa. Este retardo es generalmente aceptable para la mayoría de las operaciones de vuelo, pero en situaciones de cambios abruptos de altitud, puede ser necesario que el piloto confíe más en la información de otros instrumentos, como el altímetro, para tomar decisiones inmediatas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figura 222.png}
+    \caption{\centering Representación del mecanismo del indicador de velocidad vertical. \textit{Fuente:Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control.}}
+    \label{fig:placeholdeeeeeeer}
+\end{figure}
+
+La unidad de medida puede diferenciarse si se trata de un diseño pasivo, que se equilibra naturalmente para los cambios de presión y temperatura, de uno activo en el que se detecta los cambios y se controla mecánicamente el flujo.
+
+\begin{itemize}
+\item \textbf{Tipo pasivo:} La cápsula aneroide mide directamente la diferencia de presión, esta diferencia dependerá de la tasa a la que la presión esta cambiando en la entrada y la tasa del flujo (Q), una tasa alta de flujo reducirá la diferencia de presión mientras que una baja la incrementará.
+
+\[ 
+\Delta P \alpha \frac{1}{Q} \frac{dP}{dh} \frac{dh}{dt}
+\]
+
+Donde \(\frac{1}{Q}\) representa la diferencia de presión debido a la tasa de flujo, \(\frac{dP}{dh}\) representa la diferencia de presión debido la altura a la que se encuentre la aeronave, y \(\frac{dh}{dt}\) representa la diferencia de presión debido a la tasa de ascenso y descenso (que es el único parámetro que estamos buscando).
+
+El objetivo que tiene la tasa de flujo es ser capaz de anular la desviación de la presión debida a la altura en la que se encuentre.
+
+\item \textbf{Tipo activo:} Otro problema que surge en los sistemas VSI es la desviación debido a la temperatura, lo que hace necesario el uso de una pieza bimetálica que deje pasar o no el fluido en función de su temperatura. A los sistemas que incluyen este parámetro en la toma calibrada se les conoce como tipo activo, Figura \ref{fig:placeholdeeeeeeer}.\\
+\end{itemize}
+
+Además, es crucial que el mantenimiento de este instrumento se realice de manera adecuada. Cualquier obstrucción o fuga en la fuente estática, la cápsula aneroide o la fuga calibrada podría resultar en lecturas incorrectas, lo que comprometería la seguridad del vuelo. En resumen, el VSI es una herramienta invaluable para el control de la altitud, siempre y cuando se mantenga en condiciones óptimas de operación.\\
+
+El variómetro tiene una aguja sobre una corona con una escala que comienza en cero en la parte central izquierda. Su lectura es sencilla, las marcas por encima del cero indican ascenso, las situadas por debajo descenso, y el cero significa vuelo nivelado. En aviones ligeros, la escala suele estar graduada con marcas representando una velocidad de ascenso o descenso de 100 pies por minuto hasta un máximo de 2000.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{variometro.jpg}
+    \caption{Indicador de velocidad vertical. \textit{Fuente: \href{https://www.aeroexpo.online/es/prod/uma-instruments/product-182082-37144.html}{aeroexpo}}}
+    \label{fig:placeholder1234}
+\end{figure}
+
+Cabe destacar que los cambios súbitos de actitud del avión, maniobras de viraje bruscas, o el vuelo en aire turbulento pueden producir falsas presiones estáticas que hagan las indicaciones del instrumento sean erróneas o inexactas.\\
+
+
+
+\section{Indicador del número de Mach}
+
+El número de Mach es un parámetro crucial en la aviación, es definido como la relación entre la velocidad de una aeronave y la velocidad del sonido en el medio.\\
+
+Cuando una aeronave se acerca al número de Mach, se empiezan a formar ondas de choque a su alrededor, lo que afecta enormemente a su resistencia aerodinámica, lo que siente el piloto es la necesidad de aumentar la potencia del motor para seguir a la misma velocidad, lo que lleva a un mal rendimiento del motor. En aviones comerciales se intenta volar a velocidad inferiores al número de Mach (aproximadamente a 0,8 M) y se diseña para que sus efectos de compresibilidad a este régimen sean mínimos.\\
+
+
+El indicador del número de Mach (Machmeter) necesita la información de la presión estática y total, para luego sustituir los valores de las presiones en una ecuación que permita el cálculo de la velocidad relativa de la aeronave expresada como un múltiplo de la velocidad del sonido a la altitud en cuestión.\\
+
+A continuación, vamos a obtener esa expresión que relacione el número de Mach con las presiones:\\
+
+
+En la ecuación \ref{eq:tas} aplicamos la ecuación general de los gases ideales: \(P_e = \rho R T\), obteniendo:
+\begin{equation}
+	TAS = M \sqrt{\gamma R T} = M \sqrt{\gamma} \sqrt{\frac{P_e}{\rho}}
+	\label{eq:yeyeyey}
+\end{equation}
+
+
+
+Siendo \(P_e\) la presión estática (la atmosférica). Ahora, en aviones comerciales el número de Mach es bajo, por lo que se puede aproximar este número si aplicamos la definición de presión dinámica en flujo incompresible:
+\begin{equation}
+	q = \frac{1}{2} \rho V^{2} \rightarrow TAS \approx \sqrt{\frac{2q}{\rho}}
+	\label{eq:yeyeyeyeyeyey}
+\end{equation}
+
+Igualando las ecuaciones \ref{eq:yeyeyey} y \ref{eq:yeyeyeyeyeyey}, obtenemos:
+\begin{equation}
+	\sqrt{\frac{2q}{\rho}} =  M \sqrt{\gamma} \sqrt{\frac{P_e}{\rho}} \rightarrow M = \sqrt{\frac{2}{\gamma}} \sqrt{\frac{q}{P_e}} = \sqrt{\frac{2}{\gamma}} \sqrt{\frac{P_t - P_e}{P_e}}
+\end{equation}
+
+Siendo el valor \(\sqrt{\frac{2}{\gamma}}\) una constante para el aire, con esta expresión podemos aproximar el número de Mach conociendo la presión dinámica y estática.\\
+
+Dado que la velocidad del sonido cambia según la temperatura (\(a = \sqrt{\gamma R T}\)), y la temperatura disminuye con la altitud, el indicador de Mach planteado solo podría mostrar con precisión este valor a una altitud fija, y a medida que la aeronave asciende o desciende este valor no sería fiable, es por ello que el mecanismo se debe mejorar para proporcionar al piloto esta información en esos casos, ya sea midiéndola directamente o calculándola a partir de otros parámetros.\\
+
+\begin{figure}[H] 
+	\centering
+	\includegraphics[width=0.55\textwidth]{numeromach.png}
+	\caption{\centering Variación de la velocidad del sonido y del número de Mach con la altitud a un TAS constante (250 m/s). \textit{ Fuente: Creación propia usando MATLAB.}}
+	\label{fig:grafica}
+\end{figure}
+		
+En la figura \ref{fig:placeholderseyw} se observa el funcionamiento del Machmeter, que se basa en dos cápsulas aneroides. En una de ellas se transmite la presión total, mientras que la carcasa del instrumento se expone a la presión estática, por lo que la expansión o contracción de la capsula indica la velocidad del aire. En la otra cápsula se introduce una presión de referencia para poder indicar la altitud. Los mecanismos que se ven para cada cápsula permiten que el altímetro ajuste la escala del indicador para que la velocidad de el número de Mach según la relación de q y \(P_s\).
+
+\begin{figure}[H] 
+	\centering
+	\includegraphics[width=0.4\textwidth]{figura 228.png}
+	\caption{\centering Indicador de número de Mach.\textit{Fuente: Chris Binns: Aircraft Systems Instruments, Communications, Navigation and Control.}}
+	\label{fig:placeholderseyw}
+\end{figure}
+
+
+
+\section{Computadora de Datos de Aire}
+Los datos del sistema pitot-estático son procesadas al ADC (Computadora de Datos de Vuelo), responsable de proporcionar la diferencia de la presión total frente a la presión estática y de esta manera obtener la velocidad del aire. Estos datos, así como la temperatura del aire exterior, sirven para alimentar los parámetros esenciales que se muestran en las diversas pantallas de vuelo, como la Pantalla Primaria de Vuelo (PFD).\\
+
+Y, además de enviar datos a las pantallas, la ADC es un pequeño equipo autónomo que también puede alimentar el sistema de control del piloto automático, el cual se estudiará en siguientes capítulos. Su arquitectura modular garantiza una rápida removibilidad y sustitución de componentes defectuosos, lo que lleva a una reducción de la actividad de mantenimiento y el tiempo fuera de servicio de la aeronave.\\
+
+\begin{figure}[H] 
+	\centering
+	\includegraphics[width=0.6\textwidth]{ADC.jpg}
+	\caption{\centering Representación del ADC \textit{ Fuente: Pilot´s Handbook of Aeronautical Knowledge. U.S Department of transpotation}}
+	\label{fig:placeholderxd}
+\end{figure}
+
+La altitud se deriva de la presión estática, como en los sistemas analógicos tradicionales. En lugar de la presión directa sobre un diafragma, en este caso, la ADC convierte la presión en una señal eléctrica y la envía al PFD. Con la ayuda de este formato digital, también se pueden presentar vectores de tendencia en la pantalla, indicando al piloto con antelación cómo están cambiando parámetros como la altitud o la velocidad, lo que le permite mantener trayectorias de vuelo más estables.\\
+
+Como se estudió en el capitulo anterior, existen distintos factores que puedan producir errores en las tomas de presión estática y de remanso. Es por ello que la redundancia es un aspecto relevante, en las aeronaves debe haber al menos dos ADC para garantizar un sistema de respaldo en caso de error. Al disponer de varios ADC estos pueden verificarse entre ellos y en caso de discrepancia avisar al piloto o cambiar el funcionamiento automáticamente.\\
+
+
+Las señales con la información de las presiones obtenidas se utilizan posteriormente para alimentar módulos adicionales, como el de número de Mach y el de velocidad verdadera (TAS), integrando así los datos esenciales para la navegación aérea y mejorar el rendimiento de la aeronave.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
